@@ -1,35 +1,60 @@
-
 // import React from "react";
-import "./navbar.css"
-import ImgPlaceHolder from "../../assets/img-placeholder.png"
+import { Link } from "react-router-dom";
+import { profile } from "../../assets";
+import "./navbar.css";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [dropdown, setdropdown] = useState(false);
   return (
-
-    <div className="nav-wrapper">
-      <h1 className="header">Readers Haven</h1>
+    <nav className="nav-wrapper">
+      <Link to="/">
+        <h1 className="header">Readers Haven</h1>
+      </Link>
       <ul id="nav">
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">Search</a>
+          <Link to="/search">Search</Link>
         </li>
         <li>
-          <a href="#">Genres</a>
+          <Link to="/">Genres</Link>
         </li>
         <li>
-          <a href="#">Authors</a>
+          <Link to="/">Authors</Link>
         </li>
-         <li>
-          <a href="#">Best Selling</a>
+        <li>
+          <Link to="/">Best Selling</Link>
         </li>
-         <li>
-          {/* <a href="#">Best Selling</a> */}
-          <img src={ImgPlaceHolder} className="img-placeholder" />
+
+        <li>
+          <img
+            src={profile}
+            className="img-placeholder"
+            onClick={() => {
+              setdropdown((prev) => !prev);
+            }}
+          />
         </li>
       </ul>
-    </div>
+
+      {dropdown && (
+        <div className="profile-option">
+          <Link
+            to="/"
+            onClick={() => {
+              setdropdown((prev) => !prev);
+            }}
+          >
+            View profile
+          </Link>
+          <button className="logout-btn" onClick={() => {}}>
+            Log out
+          </button>
+        </div>
+      )}
+    </nav>
   );
 };
 
