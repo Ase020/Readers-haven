@@ -1,0 +1,50 @@
+.main-footer {
+    background-color: #242294;
+    padding: 20px 0;
+    color: aliceblue;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .col {
+    flex: 1;
+  }
+  
+  ul.list-unstyled {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .col h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .col ul li {
+    margin-bottom: 5px;
+  }
+  
+  .row hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .row p {
+    text-align: center;
+  }
+  
+
