@@ -1,41 +1,43 @@
-.sr_page{
- background-color: white;
- width: 80%;
- padding: 90px 60px 70px 60px;
- display: flex;
- flex-direction: column;
- gap: 20px;
- align-items: center;
- margin: 0px auto;
-
+.sr_page {
+  background-color: white;
+  width: 80%;
+  padding: 90px 60px 70px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin: 0px auto;
 }
 
 #list_search {
- 	list-style: none; 
+  list-style: none;
 }
 .search_wrapper {
- padding-top: 50px;
+  padding-top: 50px;
 }
 
 .search_form {
-
- width: 100%;
+  width: 100%;
 }
 #list_search {
- display: flex;
-	width: 75%;
- justify-content: space-between;
- align-items: center;
- margin-left: 20px;
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
 }
 #list_search li a {
- display: block;
- padding: 8px 10px;
- font-size: 19px;
- }
+  display: block;
+  padding: 8px 10px;
+  font-size: 19px;
+  color: blue;
+}
+#list_search li a:hover {
+  color: black;
+}
 
 .search_input {
- width: 100%;
- background-color: rgb(252, 254, 255);
- padding: 10px;
+  width: 100%;
+  background-color: rgb(252, 254, 255);
+  padding: 10px;
 }
