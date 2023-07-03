@@ -2,4 +2,16 @@
  margin: 0;
  padding: 0;
  box-sizing: border-box;
+ /* background-image:url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg"); */
+  
+}
+
+.bg {
+ height: calc(100vh - 160px);
+  background-image: url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg"); 
+  background-color: #cccccc; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
 }
