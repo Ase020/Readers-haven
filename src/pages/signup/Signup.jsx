@@ -3,6 +3,24 @@ import "./signup.css";
 import { cover2 } from "../../assets";
 
 const Signup = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      username: e.target[0].value,
+      email: e.target[1].value,
+      password: e.target[2].value,
+      confirm_password: e.target[3].value,
+    };
+
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then(console.log);
+  };
+
   return (
     <div className="signup">
       <div className="signup-container">
@@ -31,7 +49,7 @@ const Signup = () => {
         </div>
         <div className="signup-form-wrapper">
           <h1 className="title">Sign up</h1>
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Username"

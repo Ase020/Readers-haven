@@ -3,6 +3,24 @@ import "./password-reset.css";
 import { cover3 } from "../../assets";
 
 const PasswordReset = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      username: e.target[0].value,
+      email: e.target[1].value,
+      password: e.target[2].value,
+      confirm_password: e.target[3].value,
+    };
+
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then(console.log);
+  };
+
   return (
     <div className="reset">
       <div className="reset-container">
@@ -31,7 +49,7 @@ const PasswordReset = () => {
         </div>
         <div className="reset-form-wrapper">
           <h1 className="title">Rest password</h1>
-          <form className="reset-form">
+          <form className="reset-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Username" className="reset-input" />
 
             <input

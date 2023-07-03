@@ -3,6 +3,22 @@ import { cover1 } from "../../assets";
 import "./login.css";
 
 const Login = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      username: e.target[0].value,
+      password: e.target[1].value,
+    };
+
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then(console.log);
+  };
+
   return (
     <div className="login">
       <div className="login-container">
@@ -31,7 +47,7 @@ const Login = () => {
         </div>
         <div className="login-form-wrapper">
           <h1 className="title">Login</h1>
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Username" className="login-input" />
             <input
               type="password"
