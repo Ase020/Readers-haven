@@ -3,44 +3,48 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-      <div className="main-footer">
-        <div className="container">
-          <div className="row">
-            {/* column 1 */}
-            <div className="col">
-              <h4>unwritten yet</h4>
-              <ul className="list-unstyled">
-                <li>456465w5745</li>
-                <li>dsdfbzgfbf</li>
-                <li>dgsdbxfgfb</li>
-              </ul>
-            </div>
-            {/* column 2 */}
-            <div className="col">
-              <h4>welcome</h4>
-              <ul className="list-unstyled">
-                <li>dfrgergb</li>
-                <li>dfgzdfgzdfgz</li>
-                <li>zdfgzdfnzdfh</li>
-              </ul>
-            </div>
-            {/* column 3 */}
-            <div className="col">
-              <h4>full enough</h4>
-              <ul className="list-unstyled">
-                <li>zdfgbzdfbz</li>
-                <li>dfgzdfgdgadf</li>
-                <li>zfvardgdggd</li>
-              </ul>
-            </div>
+    <div className="main-footer">
+      <div className="container">
+        <div className="row">
+          {/* column 1 */}
+          <div className="col">
+            <h4>About Us</h4>
+            <p>We are a team of passionate individuals dedicated to providing high-quality products and services.</p>
           </div>
-          <hr />
-          <div className="row">
-            <p className="col-sm">
-              &copy;{new Date().getFullYear} All right reserved| Terms of service | Privacy
-            </p>
+          {/* column 2 */}
+          <div className="col">
+            <h4>Contact</h4>
+            <ul className="list-unstyled">
+              <li>Email: info@example.com</li>
+              <li>Phone: 123-456-7890</li>
+              <li>Address: 123 Main Street, City, Country</li>
+            </ul>
+          </div>
+          {/* column 3 */}
+          <div className="col">
+            <h4>Follow Us</h4>
+            <ul className="list-unstyled">
+              <li>
+                <a href="https://twitter.com">Twitter</a>
+              </li>
+              <li>
+                <a href="https://facebook.com">Facebook</a>
+              </li>
+              <li>
+                <a href="https://instagram.com">Instagram</a>
+              </li>
+            </ul>
           </div>
         </div>
+        {/* Footer content */}
+        <hr />
+        <div className="row">
+          <div className="col-sm">
+            &copy; {new Date().getFullYear()} All rights reserved | Terms of Service | Privacy Policy
+          </div>
+        </div>
+        </div>
+        {/* End of footer content */}
       </div>
   );
 };
