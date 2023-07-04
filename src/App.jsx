@@ -1,8 +1,10 @@
 
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
 import { Home, Layout, Login, PasswordReset, Signup, Search } from "./pages";
+
 
 const App = () => {
   const router = createBrowserRouter([
@@ -30,7 +32,6 @@ const App = () => {
           path: "/search",
           element: <Search />,
         },
-
       ],
     },
   ]);
