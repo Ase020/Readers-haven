@@ -1,13 +1,13 @@
+import { BookList } from "../../components";
 import "./home.css";
-import BookCard from './BookCard.js'
 
 const Home = () => {
   return (
-   <div>
-    Home
-    <BookCard />
+    <div>
+      Home
+      <BookList />
     </div>
-  ); 
+  );
 };
 
 export default Home;
