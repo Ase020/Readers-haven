@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./signup.css";
-import { cover2 } from "../../assets";
+import "./password-reset.css";
+import { cover3 } from "../../assets";
 
-const Signup = () => {
+const PasswordReset = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -22,10 +22,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup">
-      <div className="signup-container">
-        <div className="signup-welcome-page">
-          <img src={cover2} alt="cover" className="signup-img" />
+    <div className="reset">
+      <div className="reset-container">
+        <div className="reset-welcome-page">
+          <img src={cover3} alt="cover" className="reset-img" />
 
           <div className="welcome-text">
             <h1 className="welcome-text-title">
@@ -39,36 +39,31 @@ const Signup = () => {
               publishers.
             </p>
 
-            <div className="signup-wrapper">
-              <p className="signup-text">Have an account?</p>
+            <div className="reset-wrapper">
+              <p className="reset-text">Back to login</p>
               <button>
                 <Link to="/login">Log in</Link>
               </button>
             </div>
           </div>
         </div>
-        <div className="signup-form-wrapper">
-          <h1 className="title">Sign up</h1>
-          <form className="signup-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Username"
-              className="signup-input"
-            />
+        <div className="reset-form-wrapper">
+          <h1 className="title">Rest password</h1>
+          <form className="reset-form" onSubmit={handleSubmit}>
+            <input type="text" placeholder="Username" className="reset-input" />
 
-            <input type="email" placeholder="Email" className="signup-input" />
             <input
               type="password"
-              placeholder="Password"
-              className="signup-input"
+              placeholder="New password"
+              className="reset-input"
             />
             <input
               type="password"
               placeholder="Confirm password"
-              className="signup-input"
+              className="reset-input"
             />
-            <button type="submit" className="signup-btn">
-              Sign up
+            <button type="submit" className="reset-btn">
+              Reset
             </button>
           </form>
         </div>
@@ -77,4 +72,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default PasswordReset;
