@@ -8,6 +8,7 @@ const BookCard = ({ author, title, rating, price, image }) => (
     <p>Author: {author}</p>
     <p>Rating: {rating}</p>
     <p>Price: ${price}</p>
+    <button>More Information</button>
   </div>
 );
 
