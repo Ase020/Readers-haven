@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Fauna+One&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -22,20 +21,17 @@ a {
 }
 
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- /* background-image:url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg"); */
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-image:url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg"); */
 }
 
 .bg {
- height: calc(100vh - 160px);
-  background-image: url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg"); 
-  background-color: #cccccc; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; 
-
+  height: calc(100vh - 80px);
+  background-image: url("https://thumbs.dreamstime.com/b/blurred-image-many-old-books-bookshelf-library-81867124.jpg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
