@@ -1,24 +1,38 @@
 import { Link } from "react-router-dom";
 import "./password-reset.css";
 import { cover3 } from "../../assets";
+import { useState } from "react";
 
 const PasswordReset = () => {
+  const [apiRes, setApiRes] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      username: e.target[0].value,
-      email: e.target[1].value,
-      password: e.target[2].value,
-      confirm_password: e.target[3].value,
+      email: e.target[0].value,
+      new_password: e.target[1].value,
+      confirm_password: e.target[2].value,
     };
 
-    fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    })
+    if (user.new_password !== user.confirm_password) {
+      setApiRes({
+        error: "Error! New password and confirm password do not match.",
+      });
+    }
+
+    console.log(user);
+
+    fetch(
+      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/password/reset",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      }
+    )
       .then((res) => res.json())
-      .then(console.log);
+      .then((data) => setApiRes(data))
+      .catch(() => setApiRes({ error: "Error! Failed to reset password." }));
   };
 
   return (
@@ -50,7 +64,7 @@ const PasswordReset = () => {
         <div className="reset-form-wrapper">
           <h1 className="title">Reset password</h1>
           <form className="reset-form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Username" className="reset-input" />
+            <input type="email" placeholder="Email" className="reset-input" />
 
             <input
               type="password"
@@ -66,6 +80,9 @@ const PasswordReset = () => {
               Reset
             </button>
           </form>
+
+          {apiRes && apiRes.message && <p>{apiRes.message}</p>}
+          {apiRes && apiRes.error && <p>{apiRes.error}</p>}
         </div>
       </div>
     </div>
