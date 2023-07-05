@@ -20,8 +20,6 @@ const PasswordReset = () => {
       });
     }
 
-    console.log(user);
-
     fetch(
       "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/password/reset",
       {
