@@ -3,20 +3,24 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+/* .card--img{
+  width: 100%;
+} */
   
   .book-card {
     background-color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(27, 27, 48, 0.1);
     text-align: center;
-    width: 300px;
+    width: 200px;
+    height: 400px;
     margin: 10px;
   }
   
   .book-card img {
-    width: 53%;
-    height: 200px;
+    width: 40%;
+    height: 40%;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;

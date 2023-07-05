@@ -47,4 +47,12 @@ export const books = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8hvH6J0a7HHtlm_rXq5300IsEc1U_SmolppFWPdtr8lV57nvZcRmIn4FXfzmBZKJUSbc&usqp=CAU",
   },
+   {
+    author: "Jane Austen",
+    title: "Pride and Prejudice",
+    rating: 4.5,
+    price: 899,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR55js26NETvWGjwibUc0o1JcMBetB8qlr3hSXhgXLqVZ_wb-vCMWDcnCzchRlTzeKW3yA&usqp=CAU",
+  },
 ];

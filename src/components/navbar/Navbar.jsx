@@ -14,21 +14,17 @@ const Navbar = () => {
       </Link>
       <ul id="nav">
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="/search">Search</Link>
         </li>
-        <li>
-          <Link to="/">Genres</Link>
-        </li>
+        {/* <li>
+          <Link to="/genres">Genres</Link>
+        </li> */}
         <li>
           <Link to="/">Authors</Link>
         </li>
         <li>
-          <Link to="/">Best Selling</Link>
+          <Link to="/">+📖</Link>
         </li>
-
         <li>
           <img
             src={profile}
