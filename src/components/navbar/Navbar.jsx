@@ -1,12 +1,23 @@
+/* eslint-disable react/prop-types */
 // import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { profile } from "../../assets";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
   const [dropdown, setdropdown] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    fetch("http:localhost:3000/logout", {
+      method: "DELETE",
+    }).then(() => onLogout());
+    setdropdown(false);
+    setIsLoggedin(false);
+    navigate("/login");
+  };
 
   return (
     <nav className="nav-wrapper">
@@ -17,23 +28,31 @@ const Navbar = () => {
         <Link className="nav-links" to="/search">
           Search
         </Link>
-        <Link className="nav-links" to="/">
+        <Link className="nav-links" to="/authors">
           Authors
         </Link>
         <Link className="nav-links" to="/">
           + 📖
         </Link>
-        <img
-          src={profile}
-          className="img-placeholder"
-          onClick={() => {
-            setdropdown((prev) => !prev);
-          }}
-        />
+
+        {isLoggedin ? (
+          <img
+            src={profile}
+            className="img-placeholder"
+            onClick={() => {
+              setdropdown((prev) => !prev);
+            }}
+          />
+        ) : (
+          <Link to="/login" className="nav-links">
+            Log in
+          </Link>
+        )}
       </div>
 
       {dropdown && (
         <div className="profile-option">
+          <p className="username">{user?.first_name}</p>
           <Link
             className="nav-links"
             to="/profile"
@@ -43,7 +62,7 @@ const Navbar = () => {
           >
             View profile
           </Link>
-          <button className="logout-btn" onClick={() => {}}>
+          <button className="logout-btn" onClick={handleLogout}>
             Log out
           </button>
         </div>
