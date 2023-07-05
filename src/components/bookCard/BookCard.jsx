@@ -9,7 +9,7 @@ const BookCard = ({ author, title, rating, price, image }) => (
     <p>Rating: {rating}</p>
     <p>Price: ${price}</p>
     <button>More Information</button>
-  </div>
+  </div> 
 );
 
 export default BookCard;
