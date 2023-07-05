@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 import { cover2 } from "../../assets";
 
-const Signup = () => {
+const Signup = ({ onLogin, setIsLoggedin }) => {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -22,7 +24,9 @@ const Signup = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then(onLogin);
+    setIsLoggedin(true);
+    navigate("/");
   };
 
   return (

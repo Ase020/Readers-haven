@@ -48,7 +48,9 @@ const App = () => {
         },
         {
           path: "/signup",
-          element: <Signup setIsLoggedin={setIsLoggedin} />,
+          element: (
+            <Signup setIsLoggedin={setIsLoggedin} onLogin={handleLogin} />
+          ),
         },
         {
           path: "/login/password_reset",
