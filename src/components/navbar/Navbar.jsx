@@ -37,7 +37,8 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
 
         {isLoggedin ? (
           <img
-            src={profile}
+            src={user?.image_url ? user?.image_url : profile}
+            alt={user?.first_name}
             className="img-placeholder"
             onClick={() => {
               setdropdown((prev) => !prev);

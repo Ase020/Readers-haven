@@ -16,7 +16,7 @@ const Signup = ({ onLogin, setIsLoggedin }) => {
       confirm_password: e.target[5].value,
     };
 
-    console.log(user);
+    // console.log(user);
 
     fetch("http://localhost:3000/signup", {
       method: "POST",
