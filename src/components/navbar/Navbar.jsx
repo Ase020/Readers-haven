@@ -11,7 +11,7 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    fetch("http:localhost:3000/logout", {
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/logout", {
       method: "DELETE",
     }).then(() => onLogout());
     setdropdown(false);

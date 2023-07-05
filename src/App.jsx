@@ -9,11 +9,13 @@ const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((res) => {
-      if (res.ok) {
-        res.json().then((user) => setUser(user));
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me").then(
+      (res) => {
+        if (res.ok) {
+          res.json().then((user) => setUser(user));
+        }
       }
-    });
+    );
   }, []);
 
   const handleLogin = (user) => {
