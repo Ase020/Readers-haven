@@ -18,6 +18,7 @@
 .authors_wrapper {
   padding: 70px 0;
 }
+
 .authors-header {
   font-size: 50px;
   padding-bottom: 40px;
@@ -26,7 +27,8 @@
 .single_author {
   color: blue;
   list-style: none;
-  font-size: 500px;
+  font-size: 24px;
+  /* font-size: 500px; */
   font-weight: bold;
 }
 .single_author a:hover {
