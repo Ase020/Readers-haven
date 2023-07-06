@@ -1,4 +1,5 @@
 // import React from 'react'
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
@@ -25,10 +26,16 @@ function Search({ allBook = [] }) {
   console.log('filteredBooks', filteredBooks);
   console.log('====================================');
 
+=======
+import "./search.css";
+
+function Search() {
+>>>>>>> main
   return (
     <div className="search_wrapper">
       <div className="sr_page">
         <h2>Search Books / Authors</h2>
+<<<<<<< HEAD
         <div className="search_form">
           <input
             type="text"
@@ -49,6 +56,23 @@ function Search({ allBook = [] }) {
       {filteredBooks.map((book, i) => (
         <div key={i}>{book.title}</div>
       ))}
+=======
+        <form className="search_form">
+          <input type="text" className="search_input" />
+        </form>
+        <ul id="list_search">
+          <li>
+            <a href="#">Genres List</a>
+          </li>
+          <li>
+            <a href="#">Authors List</a>
+          </li>
+          <li>
+            <a href="#">Best Selling</a>
+          </li>
+        </ul>
+      </div>
+>>>>>>> main
     </div>
   );
 }
