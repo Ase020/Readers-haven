@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
-import { Home, Layout, Login, PasswordReset, Signup, Search } from "./pages";
+import { Home, Layout, Login, PasswordReset, Signup, Search, Book } from "./pages";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -70,6 +70,10 @@ const App = () => {
         {
           path: "/search",
           element: <Search />,
+        },
+        {
+          path: "/books/:id",
+          element: <Book />,
         },
       ],
     },

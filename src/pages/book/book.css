@@ -1,0 +1,20 @@
+.book-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .book-image img {
+    max-width: 200px;
+    height: auto;
+  }
+  .book-details {
+    flex-grow: 1;
+  }
+  .book-description {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .book-reviews {
+    margin-top: 10px;
+    font-size: 14px;
+  }

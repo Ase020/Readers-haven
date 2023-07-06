@@ -4,5 +4,6 @@ import { default as Login } from "./login/Login";
 import { default as Signup } from "./signup/Signup";
 import { default as PasswordReset } from "./password-reset/PasswordReset";
 import { default as Search } from "./search/Search";
+import { default as Book } from "./book/Book";
 
-export { Home, Layout, Login, Signup, PasswordReset, Search };
+export { Home, Layout, Login, Signup, PasswordReset, Search, Book };
