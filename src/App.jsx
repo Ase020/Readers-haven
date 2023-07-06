@@ -9,13 +9,22 @@ const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me").then(
-      (res) => {
+    // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
+    fetch("http://localhost:3000/me")
+      .then((res) => {
         if (res.ok) {
-          res.json().then((user) => setUser(user));
+          return res.json();
+        } else {
+          throw new Error("User not logged in");
         }
-      }
-    );
+      })
+      .then((user) => {
+        setUser(user);
+        setIsLoggedin(true);
+      })
+      .catch(() => {
+        setIsLoggedin(false);
+      });
   }, []);
 
   const handleLogin = (user) => {
@@ -62,17 +71,10 @@ const App = () => {
           path: "/search",
           element: <Search />,
         },
-        //  {
-        //   path: "/genres",
-        //   element: <Genre />,
-        // },
-        //  {
-        //   path: "/author/:id",
-        //   element: <Author />,
-        // },
       ],
     },
   ]);
+
   return (
     <>
       <RouterProvider router={router} />
