@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 import {
   Home,
   Layout,
@@ -10,15 +10,13 @@ import {
   Signup,
   Search,
   Authors,
-} from './pages';
-// import Authors from "./pages/author/Authors";
-// import Author from "./pages/author/Authors";
+} from "./pages";
 
 const App = () => {
   const [allBook, setAllBook] = useState([]);
   const getAllbook = async () => {
     const res = await fetch(
-      'https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books'
+      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books"
     );
     const data = await res.json();
     setAllBook(data);
@@ -30,41 +28,33 @@ const App = () => {
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: <Layout />,
       children: [
         {
-          path: '/',
+          path: "/",
           element: <Home allBook={allBook} />,
         },
         {
-          path: '/login',
+          path: "/login",
           element: <Login />,
         },
         {
-          path: '/signup',
+          path: "/signup",
           element: <Signup />,
         },
         {
-          path: '/login/password_reset',
+          path: "/login/password_reset",
           element: <PasswordReset />,
         },
         {
-          path: '/search',
+          path: "/search",
           element: <Search allBook={allBook} />,
         },
         {
-          path: '/authors',
+          path: "/authors",
           element: <Authors />,
         },
-        //  {
-        //   path: "/genres",
-        //   element: <Genre />,
-        // },
-        //  {
-        //   path: "/author/:id",
-        //   element: <Author />,
-        // },
       ],
     },
   ]);
