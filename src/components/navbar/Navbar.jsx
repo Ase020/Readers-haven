@@ -24,7 +24,7 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
       <Link to="/">
         <h1 className="header">Readers Haven</h1>
       </Link>
-<<<<<<< HEAD
+      {/* <<<<<<< HEAD
       <ul id="nav">
         <li>
           <Link to="/search">Search</Link>
@@ -32,14 +32,14 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
         {/* <li>
           <Link to="/genres">Genres</Link>
         </li> */}
-        <li>
+      {/*<li>
           <Link to="/authors">Authors</Link>
         </li>
         <li>
           <Link to="/">+📖</Link>
         </li>
-        <li>
-=======
+        <li>*/}
+
       <div id="nav">
         <Link className="nav-links" to="/search">
           Search
@@ -52,7 +52,7 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
         </Link>
 
         {isLoggedin ? (
->>>>>>> main
+          // >>>>>>> main
           <img
             src={user?.image_url ? user?.image_url : profile}
             alt={user?.first_name}

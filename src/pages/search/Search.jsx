@@ -1,14 +1,12 @@
-// import React from 'react'
-<<<<<<< HEAD
-import { useEffect, useState } from 'react';
-import { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
 // import Small from '../../components/smallcard/Small';
-import './search.css';
+import "./search.css";
 // eslint-disable-next-line react/prop-types
 function Search({ allBook = [] }) {
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   console.log(allBook);
 
   const filterBooks = useCallback(() => {
@@ -22,20 +20,15 @@ function Search({ allBook = [] }) {
     filterBooks();
   }, [filterBooks]);
 
-  console.log('====================================');
-  console.log('filteredBooks', filteredBooks);
-  console.log('====================================');
+  console.log("====================================");
+  console.log("filteredBooks", filteredBooks);
+  console.log("====================================");
 
-=======
-import "./search.css";
-
-function Search() {
->>>>>>> main
   return (
     <div className="search_wrapper">
       <div className="sr_page">
         <h2>Search Books / Authors</h2>
-<<<<<<< HEAD
+
         <div className="search_form">
           <input
             type="text"
@@ -56,7 +49,7 @@ function Search() {
       {filteredBooks.map((book, i) => (
         <div key={i}>{book.title}</div>
       ))}
-=======
+      <div>
         <form className="search_form">
           <input type="text" className="search_input" />
         </form>
@@ -72,7 +65,6 @@ function Search() {
           </li>
         </ul>
       </div>
->>>>>>> main
     </div>
   );
 }
