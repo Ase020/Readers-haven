@@ -1,24 +1,32 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 import { cover2 } from "../../assets";
 
-const Signup = () => {
+const Signup = ({ onLogin, setIsLoggedin }) => {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      username: e.target[0].value,
-      email: e.target[1].value,
-      password: e.target[2].value,
-      confirm_password: e.target[3].value,
+      first_name: e.target[0].value,
+      last_name: e.target[1].value,
+      email: e.target[2].value,
+      image_url: e.target[3].value,
+      password: e.target[4].value,
+      confirm_password: e.target[5].value,
     };
 
-    fetch("http://localhost:3000/users", {
+    // console.log(user);
+
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then(onLogin);
+    setIsLoggedin(true);
+    navigate("/");
   };
 
   return (
@@ -52,11 +60,22 @@ const Signup = () => {
           <form className="signup-form" onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="First name"
+              className="signup-input"
+            />
+
+            <input
+              type="text"
+              placeholder="Last name"
               className="signup-input"
             />
 
             <input type="email" placeholder="Email" className="signup-input" />
+            <input
+              type="text"
+              placeholder="Image url"
+              className="signup-input"
+            />
             <input
               type="password"
               placeholder="Password"
