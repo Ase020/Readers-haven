@@ -64,6 +64,7 @@ a:hover {
   gap: 16px;
   padding: 20px;
   border-radius: 0 0 8px 8px;
+  z-index: 10;
 }
 
 .username {

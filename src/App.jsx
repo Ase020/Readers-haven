@@ -9,8 +9,8 @@ const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
-    // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
-    fetch("http://localhost:3000/me")
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
+    // fetch("http://localhost:3000/me")
       .then((res) => {
         if (res.ok) {
           return res.json();
