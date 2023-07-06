@@ -1,10 +1,11 @@
-import { BookList } from "../../components";
-import "./home.css";
+import { BookList } from '../../components';
+import './home.css';
 
-const Home = () => {
+// eslint-disable-next-line react/prop-types
+const Home = ({ allBook }) => {
   return (
     <div>
-      <BookList />
+      <BookList allBook={allBook} />
     </div>
   );
 };
