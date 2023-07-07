@@ -25,7 +25,7 @@ const BookCard = ({
 
       <p>Price: ${price}</p>
       <button>
-        <Link to={`/books/${id}`}>More Information</Link>
+        <Link to={`/books/${id}`}>More</Link>
       </button>
     </div>
   );
