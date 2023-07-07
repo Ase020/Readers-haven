@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { useCallback } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import SmallBook from '../../components/smallcard/Smallbook';
 // import Small from '../../components/smallcard/Small';
-import "./search.css";
+import './search.css';
 // eslint-disable-next-line react/prop-types
 function Search({ allBook = [] }) {
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   console.log(allBook);
 
   const filterBooks = useCallback(() => {
@@ -20,14 +21,14 @@ function Search({ allBook = [] }) {
     filterBooks();
   }, [filterBooks]);
 
-  console.log("====================================");
-  console.log("filteredBooks", filteredBooks);
-  console.log("====================================");
+  console.log('====================================');
+  console.log('filteredBooks', filteredBooks);
+  console.log('====================================');
 
   return (
     <div className="search_wrapper">
       <div className="sr_page">
-        <h2>Search Books / Authors</h2>
+        <h2>Search Books</h2>
 
         <div className="search_form">
           <input
@@ -46,10 +47,18 @@ function Search({ allBook = [] }) {
         </ul>
       </div>
 
-      {filteredBooks.map((book, i) => (
-        <div key={i}>{book.title}</div>
-      ))}
-      <div>
+      {searchTerm &&
+        filteredBooks.map((book, i) => (
+          <div key={i} className="search_list">
+            <SmallBook
+              title={book.title}
+              publish_date={book.publish_date}
+              price={book.price}
+              image={book.poster_url}
+            />
+          </div>
+        ))}
+      {/* <div>
         <form className="search_form">
           <input type="text" className="search_input" />
         </form>
@@ -64,7 +73,7 @@ function Search({ allBook = [] }) {
             <a href="#">Best Selling</a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
