@@ -9,10 +9,10 @@ const Book = () => {
   useEffect(() => {
     fetch(`http://localhost:3000/books/${id}`).then((res) => {
       if (res.ok) {
-        res.json().then(console.log);
+        res.json().then(setBook);
       }
     });
-  }, []);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,264 +27,51 @@ const Book = () => {
   return (
     <div className="book">
       <div className="book-wrapper">
-        <img
-          className="book-img"
-          src="https://images.pexels.com/photos/13742368/pexels-photo-13742368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="img"
-        />
+        <img className="book-img" src={book?.poster_url} alt={book?.title} />
         <div className="book-details">
           <h2>Book Details</h2>
-          <p>Author: Mohamed Salad</p>
-          <p>Publisher: Moringa</p>
-          <p>Genre:Romance</p>
-          <p>Price:$500</p>
-          <p>Description:</p>
+          <p>
+            Title: <span className="review-user">{book?.title}</span>
+          </p>
+          <p>
+            Genre: <span className="review-user">{book?.genre}</span>
+          </p>
+          <p>
+            Author: <span className="review-user">{book?.author.name}</span>
+          </p>
+          <p>
+            Publisher:{" "}
+            <span className="review-user">{book?.publisher?.name}</span>
+          </p>
+          <p>
+            Price: <span className="review-user">${book?.price}</span>
+          </p>
+          <p>
+            Description:{" "}
+            <span className="review-user">{book?.description}</span>
+          </p>
         </div>
       </div>
 
       <div className="reviews-container">
         <div className="reviews-wrapper">
           <h3>Reviews</h3>
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
-          <div className="review">
-            <p className="review-head">
-              Username: <span className="review-user">Mohamed</span>
-            </p>
-            <p className="review-head">
-              Comment:{" "}
-              <span className="review-comm">
-                alsdksadsakdk bsdbfkjdsbfksd dflfkfdkhfkl dlgjdfklldgj
-              </span>
-            </p>
-            <p className="review-head">
-              Rating: <span className="review-rate">9</span>
-            </p>
-          </div>
-          <hr />
+          {book?.reviews.map((review) => (
+            <div className="review" key={review.id}>
+              {/* <p className="review-head">
+                Username: <span className="review-user">Mohamed</span>
+              </p> */}
+              <p className="review-head">
+                Comment:{" "}
+                <span className="review-comm">{review.description}</span>
+              </p>
+              <p className="review-head">
+                Rating:{" "}
+                <span className="review-rate">{review.star_rating}</span>
+              </p>
+              <hr />
+            </div>
+          ))}
         </div>
 
         <form className="add-review-form" onSubmit={handleSubmit}>
