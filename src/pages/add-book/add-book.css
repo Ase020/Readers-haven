@@ -30,7 +30,7 @@
 }
 
 .add_book-form {
-  background: #fff;
+  /* background: lightgray; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,13 +38,16 @@
   gap: 30px;
   padding: 50px;
   border-radius: 12px;
+  width: 90%;
 }
 
 .add_book-form-input {
   border: none;
   border-bottom: 1px solid gray;
-  padding-bottom: 12px;
+  padding: 12px;
+  width: 100%;
   outline: none;
+  border-radius: 6px;
 }
 
 .add_book-form-btn {
