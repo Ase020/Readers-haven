@@ -56,7 +56,7 @@ const App = () => {
     );
     const data = await res.json();
     setAllBook(data);
-    console.log(data);
+    // console.log(data);
   };
   useEffect(() => {
     getAllbook();
