@@ -18,7 +18,8 @@ const Signup = ({ onLogin, setIsLoggedin }) => {
 
     // console.log(user);
 
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup", {
+    // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup", {
+    fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

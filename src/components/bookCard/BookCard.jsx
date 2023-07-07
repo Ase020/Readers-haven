@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import "./book-card.css";
 
+
 const BookCard = ({ title, publish_date, price, image, rating, author }) => (
   <div className="book-card">
     <img src={image} alt={title} />
@@ -18,7 +19,12 @@ const BookCard = ({ title, publish_date, price, image, rating, author }) => (
     <p>Rating: {rating}</p>
 
     <p>Price: ${price}</p>
-    <button>More Information</button>
+    <button>
+      <Link to={`/books/${id}`}>
+
+      More Information
+      </Link>
+      </button>
   </div>
 );
 

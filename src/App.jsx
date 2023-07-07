@@ -9,8 +9,10 @@ import {
   PasswordReset,
   Signup,
   Search,
-  Authors,
+  Book,
 } from "./pages";
+import { useEffect, useState } from "react";
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -18,21 +20,25 @@ const App = () => {
 
   useEffect(() => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
+    // fetch("http://localhost:3000/me")
+    //   .then((res) => {
+    //     if (res.ok) {
+    //       console.log("logged in");
+    //       return res.json();
+    //     } else {
+    //       throw new Error("User not logged in");
+    //     }
+    //   })
+    //   .then((user) => {
+    //     setUser(user);
+    //     setIsLoggedin(true);
+    //   })
+    //   .catch(() => {
+    //     setIsLoggedin(false);
+    //   });
     fetch("http://localhost:3000/me")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("User not logged in");
-        }
-      })
-      .then((user) => {
-        setUser(user);
-        setIsLoggedin(true);
-      })
-      .catch(() => {
-        setIsLoggedin(false);
-      });
+      .then((res) => res.json())
+      .then(console.log);
   }, []);
 
   const handleLogin = (user) => {
@@ -95,6 +101,10 @@ const App = () => {
         {
           path: "/authors",
           element: <Authors />,
+        },
+        {
+          path: "/books/:id",
+          element: <Book />,
         },
       ],
     },

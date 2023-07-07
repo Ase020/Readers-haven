@@ -17,6 +17,7 @@ const BookList = ({ allBook = [] }) => {
           image={book.poster_url}
         />
       ))}
+      
     </div>
   );
 };
