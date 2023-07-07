@@ -16,7 +16,16 @@ const Authors = () => {
   useEffect(() => {
     getAllAuthors();
   }, []);
-  // console.log(allAuthors);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/me")
+      .then((res) => {
+        if (res.unauthorized) {
+          res.json().then(console.log);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="authors_wrapper">
