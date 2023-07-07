@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
@@ -11,6 +12,7 @@ import {
   Book,
 } from "./pages";
 import { useEffect, useState } from "react";
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -47,6 +49,19 @@ const App = () => {
     setUser(null);
   };
 
+  const [allBook, setAllBook] = useState([]);
+  const getAllbook = async () => {
+    const res = await fetch(
+      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books"
+    );
+    const data = await res.json();
+    setAllBook(data);
+    console.log(data);
+  };
+  useEffect(() => {
+    getAllbook();
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -61,7 +76,7 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Home allBook={allBook} />,
         },
         {
           path: "/login",
@@ -81,7 +96,11 @@ const App = () => {
         },
         {
           path: "/search",
-          element: <Search />,
+          element: <Search allBook={allBook} />,
+        },
+        {
+          path: "/authors",
+          element: <Authors />,
         },
         {
           path: "/books/:id",
