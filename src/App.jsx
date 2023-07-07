@@ -1,7 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
-import { Home, Layout, Login, PasswordReset, Signup, Search, Book } from "./pages";
+import {
+  Home,
+  Layout,
+  Login,
+  PasswordReset,
+  Signup,
+  Search,
+  Book,
+} from "./pages";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -9,22 +17,26 @@ const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
+    // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
     // fetch("http://localhost:3000/me")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("User not logged in");
-        }
-      })
-      .then((user) => {
-        setUser(user);
-        setIsLoggedin(true);
-      })
-      .catch(() => {
-        setIsLoggedin(false);
-      });
+    //   .then((res) => {
+    //     if (res.ok) {
+    //       console.log("logged in");
+    //       return res.json();
+    //     } else {
+    //       throw new Error("User not logged in");
+    //     }
+    //   })
+    //   .then((user) => {
+    //     setUser(user);
+    //     setIsLoggedin(true);
+    //   })
+    //   .catch(() => {
+    //     setIsLoggedin(false);
+    //   });
+    fetch("http://localhost:3000/me")
+      .then((res) => res.json())
+      .then(console.log);
   }, []);
 
   const handleLogin = (user) => {
