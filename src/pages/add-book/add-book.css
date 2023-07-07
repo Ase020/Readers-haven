@@ -1,0 +1,49 @@
+.add_book-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.add_book-wrapper {
+  width: 40%;
+  /* height: 90vh; */
+  margin: 0 auto;
+  padding: 40px;
+  padding-bottom: 60px;
+  border-radius: 20px;
+  background: #f8e7e7;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.add_book-form {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 50px;
+  border-radius: 12px;
+}
+
+.add_book-form-input {
+  border: none;
+  border-bottom: 1px solid gray;
+  padding-bottom: 12px;
+  outline: none;
+}
+
+.add_book-form-btn {
+  padding: 12px 20px;
+  background: #f8e7e7;
+  border: none;
+  color: gray;
+  border-radius: 4px;
+  cursor: pointer;
+}
