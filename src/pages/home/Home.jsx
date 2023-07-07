@@ -1,5 +1,5 @@
-import { BookList } from '../../components';
-import './home.css';
+import { BookList } from "../../components";
+import "./home.css";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ allBook }) => {
