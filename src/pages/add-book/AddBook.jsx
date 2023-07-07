@@ -20,6 +20,15 @@ const AddBook = () => {
             type="number"
             placeholder="Price"
             className="add_book-form-input"
+            min="1"
+            step="1"
+          />
+          <input
+            type="number"
+            placeholder="Publish year"
+            min="1900"
+            step="1"
+            className="add_book-form-input"
           />
           <input
             type="text"
@@ -30,17 +39,30 @@ const AddBook = () => {
             type="number"
             placeholder="Author_id"
             className="add_book-form-input"
+            min="1"
+            step="1"
           />
           <input
             type="number"
             placeholder="Publisher_id"
             className="add_book-form-input"
+            min="1"
+            step="1"
           />
           <input
             type="number"
             placeholder="User_id"
             className="add_book-form-input"
+            min="1"
+            step="1"
           />
+
+          <textarea
+            className="add_book-form-input textarea"
+            placeholder="Description"
+            cols="24"
+            rows="5"
+          ></textarea>
 
           <button type="submit" className="add_book-form-btn">
             Add book
