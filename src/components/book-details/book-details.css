@@ -1,26 +1,41 @@
 .book-wrapper {
-  background: #e0d4d4;
+  background: rgb(244, 243, 243);
   display: flex;
-  flex: 1.5;
-}
-
-.book-details {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 3;
+  flex: 1;
 }
 
 .book-img {
-  width: 100%;
+  /* width: 50%; */
   height: 100%;
   object-fit: cover;
-  flex: 2;
+  flex: 1;
+}
+
+.book-details {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 0.5;
+  width: fit-content;
+  max-width: 400px;
+}
+
+.book-details h2 {
+  color: gray;
+}
+
+.book-details-header {
+  display: flex;
+  overflow-wrap: break-word;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 8px;
 }
 
 .book-user {
   font-size: 14px;
-  color: #6258ec;
+  color: #d7a25b;
   font-weight: 300;
+  text-transform: capitalize;
 }
