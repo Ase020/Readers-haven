@@ -1,5 +1,5 @@
 // import React from 'react'
-import './book-card.css';
+import './smallbook.css';
 
 // eslint-disable-next-line react/prop-types
 function SmallBook({ title, publish_date, price, image }) {
@@ -9,8 +9,8 @@ function SmallBook({ title, publish_date, price, image }) {
       <div className="card-info">
         <h2 className="title">{title}</h2>
         {/* <p>Author: {author}</p> */}
-        <p>Published in: {publish_date}</p>
-        <p>Price: ${price}</p>
+        <p className="card-info-p">Published in: {publish_date}</p>
+        <p className="card-info-p2">Price: ${price}</p>
       </div>
     </div>
   );
