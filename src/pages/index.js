@@ -6,5 +6,16 @@ import { default as PasswordReset } from "./password-reset/PasswordReset";
 import { default as Search } from "./search/Search";
 import { default as Authors } from "./authors/Authors";
 import { default as Book } from "./book/Book";
+import { default as AddBook } from "./add-book/AddBook";
 
-export { Home, Layout, Login, Signup, PasswordReset, Search ,Authors, Book};
+export {
+  Home,
+  Layout,
+  Login,
+  Signup,
+  PasswordReset,
+  Search,
+  Authors,
+  Book,
+  AddBook,
+};

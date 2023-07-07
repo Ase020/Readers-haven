@@ -11,6 +11,7 @@ import {
   Search,
   Book,
   Authors,
+  AddBook,
 } from "./pages";
 
 const App = () => {
@@ -104,6 +105,10 @@ const App = () => {
         {
           path: "/books/:id",
           element: <Book />,
+        },
+        {
+          path: "/books/add",
+          element: <AddBook />,
         },
       ],
     },

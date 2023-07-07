@@ -24,22 +24,6 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
       <Link to="/">
         <h1 className="header">Readers Haven</h1>
       </Link>
-      {/* <<<<<<< HEAD
-      <ul id="nav">
-        <li>
-          <Link to="/search">Search</Link>
-        </li>
-        {/* <li>
-          <Link to="/genres">Genres</Link>
-        </li> */}
-      {/*<li>
-          <Link to="/authors">Authors</Link>
-        </li>
-        <li>
-          <Link to="/">+📖</Link>
-        </li>
-        <li>*/}
-
       <div id="nav">
         <Link className="nav-links" to="/search">
           Search
@@ -47,7 +31,7 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
         <Link className="nav-links" to="/authors">
           Authors
         </Link>
-        <Link className="nav-links" to="/">
+        <Link className="nav-links" to="/books/add">
           + 📖
         </Link>
 
