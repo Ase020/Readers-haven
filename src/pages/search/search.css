@@ -41,3 +41,10 @@
   background-color: rgb(252, 254, 255);
   padding: 10px;
 }
+
+.search_list {
+  display: flex;
+  gap: 120px;
+  flex-direction: row;
+  margin-top: 50px;
+}
