@@ -6,7 +6,6 @@ import BookCard from "../bookCard/BookCard";
 
 // eslint-disable-next-line react/prop-types
 const BookList = ({ allBook }) => {
-  console.log(allBook);
   return (
     <div className="book-list">
       {allBook?.map((book) => (
