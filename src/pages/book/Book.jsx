@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import "./book.css";
-import { useParams } from "react-router-dom";
-import { AddReview, BookDetails, Review } from "../../components";
+import { useEffect, useState } from 'react';
+import './book.css';
+import { useParams } from 'react-router-dom';
+import { AddReview, BookDetails, Review } from '../../components';
 
 const Book = () => {
   const [book, setBook] = useState(null);
