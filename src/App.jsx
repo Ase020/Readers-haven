@@ -10,9 +10,8 @@ import {
   Signup,
   Search,
   Book,
+  Authors,
 } from "./pages";
-import { useEffect, useState } from "react";
-
 
 const App = () => {
   const [user, setUser] = useState(null);

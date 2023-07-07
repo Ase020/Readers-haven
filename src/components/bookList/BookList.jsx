@@ -1,15 +1,16 @@
-import './booklist.css';
+import "./booklist.css";
 
 // import { books } from '../../constants';
-import BookCard from '../bookCard/BookCard';
+import BookCard from "../bookCard/BookCard";
 
 // eslint-disable-next-line react/prop-types
 const BookList = ({ allBook = [] }) => {
   return (
     <div className="book-list">
-      {allBook.map((book, index) => (
+      {allBook.map((book) => (
         <BookCard
-          key={index}
+          key={book.id}
+          id={book.id}
           author="jgukgbjhm"
           title={book.title}
           publish_date={book.publish_date}
@@ -17,7 +18,6 @@ const BookList = ({ allBook = [] }) => {
           image={book.poster_url}
         />
       ))}
-      
     </div>
   );
 };

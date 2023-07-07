@@ -3,8 +3,15 @@
 import { Link } from "react-router-dom";
 import "./book-card.css";
 
-
-const BookCard = ({ title, publish_date, price, image, rating, author }) => (
+const BookCard = ({
+  id,
+  title,
+  publish_date,
+  price,
+  image,
+  rating,
+  author,
+}) => (
   <div className="book-card">
     <img src={image} alt={title} />
     <h2 className="title">{title}</h2>
@@ -20,11 +27,8 @@ const BookCard = ({ title, publish_date, price, image, rating, author }) => (
 
     <p>Price: ${price}</p>
     <button>
-      <Link to={`/books/${id}`}>
-
-      More Information
-      </Link>
-      </button>
+      <Link to={`/books/${id}`}>More Information</Link>
+    </button>
   </div>
 );
 
