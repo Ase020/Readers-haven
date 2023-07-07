@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Cookies from "js-cookie";
 
 import "./App.css";
 import {
@@ -23,7 +22,6 @@ const App = () => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
     fetch("http://localhost:3000/me", {
       headers: {
-        Authorization: `Bearer ${Cookies.get("session")}`,
         "Content-Type": "application/json",
       },
     })

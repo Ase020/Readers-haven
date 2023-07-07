@@ -17,15 +17,16 @@ const Authors = () => {
     getAllAuthors();
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/me")
-      .then((res) => {
-        if (res.unauthorized) {
-          res.json().then(console.log);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/me", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <div className="authors_wrapper">
