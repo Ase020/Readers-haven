@@ -20,25 +20,22 @@ const App = () => {
 
   useEffect(() => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
-    // fetch("http://localhost:3000/me")
-    //   .then((res) => {
-    //     if (res.ok) {
-    //       console.log("logged in");
-    //       return res.json();
-    //     } else {
-    //       throw new Error("User not logged in");
-    //     }
-    //   })
-    //   .then((user) => {
-    //     setUser(user);
-    //     setIsLoggedin(true);
-    //   })
-    //   .catch(() => {
-    //     setIsLoggedin(false);
-    //   });
     fetch("http://localhost:3000/me")
-      .then((res) => res.json())
-      .then(console.log);
+      .then((res) => {
+        if (res.ok) {
+          console.log("logged in");
+          return res.json();
+        } else {
+          throw new Error("User not logged in");
+        }
+      })
+      .then((user) => {
+        setUser(user);
+        setIsLoggedin(true);
+      })
+      .catch(() => {
+        setIsLoggedin(false);
+      });
   }, []);
 
   const handleLogin = (user) => {
@@ -51,9 +48,7 @@ const App = () => {
 
   const [allBook, setAllBook] = useState([]);
   const getAllbook = async () => {
-    const res = await fetch(
-      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books"
-    );
+    const res = await fetch("http://localhost:3000/books");
     const data = await res.json();
     setAllBook(data);
     // console.log(data);

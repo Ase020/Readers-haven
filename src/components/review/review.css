@@ -1,0 +1,28 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-head {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.review-user {
+  font-size: 14px;
+  color: #6258ec;
+  font-weight: 500;
+}
+
+.review-comm {
+  color: rgb(86, 86, 86);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.review-rate {
+  font-weight: 600;
+  font-size: 14px;
+  color: green;
+}

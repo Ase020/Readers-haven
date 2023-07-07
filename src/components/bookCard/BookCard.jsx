@@ -9,27 +9,34 @@ const BookCard = ({
   publish_date,
   price,
   image,
-  rating,
+  // rating,
   author,
-}) => (
-  <div className="book-card">
-    <img src={image} alt={title} />
-    <h2 className="title">{title}</h2>
-
-    {/* <p>
-      <Link to="/author">Author: {author}</Link>
-    </p> */}
-    <p>publish_date: {publish_date}</p>
-    <p>
-      <Link to="/author">Author: {author}</Link>
-    </p>
-    <p>Rating: {rating}</p>
-
-    <p>Price: ${price}</p>
-    <button>
-      <Link to={`/books/${id}`}>More Information</Link>
-    </button>
-  </div>
-);
+}) => {
+  // console.log(author, rating);
+  return (
+    <div className="book-card">
+      <img src={image} alt={title} className="book-cover" />
+      <div className="book-attrs">
+        <h2 className="book-title">
+          Title: <span className="book-attr">{title}</span>
+        </h2>
+        <p className="book-attr">
+          Published: <span className="book-attr">{publish_date}</span>
+        </p>
+        <p className="book-attr">
+          <Link to={`/books/${id}/author`}>
+            Author: <span className="book-attr">{author}</span>
+          </Link>
+        </p>
+        <p className="book-attr">
+          Price: $<span className="book-attr">{price}</span>
+        </p>
+        <button className="showmore-btn">
+          <Link to={`/books/${id}`}>More</Link>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default BookCard;

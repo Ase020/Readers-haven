@@ -1,7 +1,13 @@
 .book-list {
-    display: grid;
+  /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 30px;
-    justify-items: center;
-  }
-  
+    justify-items: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 40px;
+  margin: auto;
+}
