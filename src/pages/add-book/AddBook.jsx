@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./add-book.css";
+import { UserContext } from "../../context/user";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
+  const [user] = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    confirm("Add book?");
     setLoading(true);
     const bookObj = {
       title: e.target[0].value,
@@ -15,8 +26,8 @@ const AddBook = () => {
       poster_url: e.target[4].value,
       author_id: e.target[5].value,
       publisher_id: e.target[6].value,
-      user_id: e.target[7].value,
-      description: e.target[8].value,
+      description: e.target[7].value,
+      user_id: user?.id,
     };
 
     fetch("http://localhost:3000/books", {
@@ -30,11 +41,14 @@ const AddBook = () => {
       .then((book) => {
         console.log(book);
         setLoading(false);
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
         setLoading(false);
       });
+
+    navigate("/");
   };
 
   return (
@@ -92,14 +106,14 @@ const AddBook = () => {
             min="1"
             step="1"
           />
-          <input
+          {/* <input
             type="number"
             placeholder="User_id"
             className="add_book-form-input"
             required
             min="1"
             step="1"
-          />
+          /> */}
 
           <textarea
             className="add_book-form-input textarea"
