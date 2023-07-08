@@ -1,0 +1,79 @@
+.profile-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.profile-welcome {
+  font-size: 48px;
+  color: #e88e19;
+  margin-bottom: 40px;
+}
+
+.profile-welcome-span {
+  color: lightgray;
+}
+
+.my-profile-wrapper {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  border: 1px solid #e88e19;
+  padding: 20px;
+  gap: 50px;
+}
+
+.my-profile-container {
+  flex: 1;
+  display: flex;
+}
+
+.my-profile-pic-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.my-profile-details {
+  flex: 1;
+
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.my-profile-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.my-profile-detail-tag {
+  color: #e8880a;
+  font-size: 16px;
+}
+
+.my-profile-detail-value {
+  color: lightgray;
+  font-size: 14px;
+}
+
+.my-books-container {
+  flex: 1;
+  border: 1px solid red;
+}

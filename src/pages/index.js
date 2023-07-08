@@ -7,6 +7,7 @@ import { default as Search } from "./search/Search";
 import { default as Authors } from "./authors/Authors";
 import { default as Book } from "./book/Book";
 import { default as AddBook } from "./add-book/AddBook";
+import { default as Profile } from "./profile/Profile";
 
 export {
   Home,
@@ -18,4 +19,5 @@ export {
   Authors,
   Book,
   AddBook,
+  Profile,
 };
