@@ -6,6 +6,8 @@ import { default as BookDetails } from "./book-details/BookDetails";
 import { default as Review } from "./review/Review";
 import { default as AddReview } from "./add-review/AddReview";
 import { default as UpdateReview } from "./update-review/UpdateReview";
+import { default as MyBooksContainer } from "./my-books-container/MyBooksContainer";
+import { default as MyProfileContainer } from "./my-profile-container/MyProfileContainer";
 
 export {
   Navbar,
@@ -16,4 +18,6 @@ export {
   BookDetails,
   AddReview,
   UpdateReview,
+  MyBooksContainer,
+  MyProfileContainer,
 };

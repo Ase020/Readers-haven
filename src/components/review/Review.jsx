@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./review.css";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { EditOutlined, DeleteOutlined } from "@mui/icons-material";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
 import UpdateReview from "../update-review/UpdateReview";
@@ -86,7 +85,7 @@ const Review = ({ review, setReviews, reviews }) => {
           onMouseEnter={() => handleMouseEnter("edit")}
           onMouseLeave={handleMouseLeave}
         >
-          <EditOutlinedIcon style={{ fontSize: "small" }} />
+          <EditOutlined style={{ fontSize: "small" }} />
           <span
             className="review-btn-name"
             style={
@@ -105,7 +104,7 @@ const Review = ({ review, setReviews, reviews }) => {
           onMouseEnter={() => handleMouseEnter("delete")}
           onMouseLeave={handleMouseLeave}
         >
-          <DeleteOutlinedIcon style={{ fontSize: "small" }} />
+          <DeleteOutlined style={{ fontSize: "small" }} />
           <span
             className="review-btn-name"
             style={
