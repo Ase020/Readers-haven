@@ -13,6 +13,7 @@ import {
   Book,
   Authors,
   AddBook,
+  Author,
 } from "./pages";
 import { UserContext } from "./context/user";
 
@@ -111,6 +112,10 @@ const App = () => {
         {
           path: "/books/add",
           element: <AddBook />,
+        },
+        {
+          path: "/authors/:id",
+          element: <Author />,
         },
       ],
     },

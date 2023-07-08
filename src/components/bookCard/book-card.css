@@ -41,6 +41,10 @@
   font-size: 14px;
 }
 
+.author-click {
+  color: #deb887;
+}
+
 .showmore-btn {
   background: #deb887;
   color: #fff;
