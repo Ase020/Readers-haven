@@ -12,9 +12,11 @@ const Layout = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
         isLoggedin={isLoggedin}
         setIsLoggedin={setIsLoggedin}
       />
+
       <div className="bg">
         <Outlet />
       </div>
+
       <Footer />
     </div>
   );

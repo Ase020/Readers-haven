@@ -1,15 +1,65 @@
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
 import "./add-review.css";
+import { UserContext } from "../../context/user";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddReview = () => {
+const AddReview = ({ reviews, setReviews }) => {
+  const [user] = useContext(UserContext);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const reviewObj = {
+      book_id: parseInt(id),
+      user_id: user.id,
       description: e.target[0].value,
-      star_rating: e.target[1].value,
+      star_rating: parseInt(e.target[1].value),
     };
 
-    console.log("ReviewObj: ", reviewObj);
+    const addReview = (reviewObj) => {
+      const alreadyAddedReview = reviews.some(
+        (review) => review.user_id === user.id
+      );
+
+      if (alreadyAddedReview) {
+        alert("Sorry! You've already added a review💀");
+        return;
+      }
+
+      fetch(`http://localhost:3000/books/${id}/reviews`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewObj),
+      })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else if (res.status === 422) {
+            throw new Error("Unprocessable Entity");
+          } else {
+            throw new Error("Unknown Error");
+          }
+        })
+        .then((data) => {
+          setReviews([...reviews, data]);
+
+          console.log(data);
+        })
+        .catch((error) => {
+          if (error.message === "Unprocessable Entity") {
+            navigate("/login");
+          } else {
+            console.log(error);
+          }
+        });
+    };
+
+    addReview(reviewObj);
   };
 
   return (

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import './book.css';
-import { useParams } from 'react-router-dom';
-import { AddReview, BookDetails, Review } from '../../components';
+import { useEffect, useState } from "react";
+import "./book.css";
+import { useParams } from "react-router-dom";
+import { AddReview, BookDetails, Review } from "../../components";
 
 const Book = () => {
   const [book, setBook] = useState(null);
@@ -32,11 +32,16 @@ const Book = () => {
         <div className="reviews-wrapper">
           <h3>Reviews</h3>
           {reviews.map((review) => (
-            <Review key={review.id} review={review} />
+            <Review
+              key={review.id}
+              review={review}
+              setReviews={setReviews}
+              reviews={reviews}
+            />
           ))}
         </div>
 
-        <AddReview />
+        <AddReview reviews={reviews} setReviews={setReviews} />
       </div>
     </div>
   );

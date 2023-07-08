@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Cookies from "js-cookie";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./App.css";
 import {
@@ -14,16 +14,17 @@ import {
   Authors,
   AddBook,
 } from "./pages";
+import { UserContext } from "./context/user";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
     fetch("http://localhost:3000/me", {
       headers: {
-        Authorization: `Bearer ${Cookies.get("session")}`,
         "Content-Type": "application/json",
       },
     })
