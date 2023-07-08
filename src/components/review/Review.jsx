@@ -7,9 +7,13 @@ import { UserContext } from "../../context/user";
 
 const Review = ({ review, setReviews, reviews }) => {
   const [btnHovered, setBtnHovered] = useState(null);
+  const [updateOn, setUpdateOn] = useState(false);
   const [user] = useContext(UserContext);
 
-  const handleEdit = () => {};
+  const handleEdit = (e) => {
+    e.preventDefault();
+  };
+
   const handleDelete = () => {
     confirm("Delete your review");
     if (user.id === review.user_id) {
@@ -69,10 +73,41 @@ const Review = ({ review, setReviews, reviews }) => {
         </span>
       </p>
 
+      {updateOn && (
+        <form className="review-update-wrapper">
+          <textarea
+            cols="30"
+            rows="3"
+            className="review-update-input"
+          ></textarea>
+
+          <select className="review-update-input">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+
+          <button
+            type="submit"
+            className="review-update-btn"
+            onClick={handleEdit}
+          >
+            Update
+          </button>
+        </form>
+      )}
+
       <div className="btn-wrapper">
         <button
           className="reviews-btn review-edit"
-          onClick={handleEdit}
+          onClick={() => setUpdateOn((prev) => !prev)}
           onMouseEnter={() => handleMouseEnter("edit")}
           onMouseLeave={handleMouseLeave}
         >
