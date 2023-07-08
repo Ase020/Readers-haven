@@ -36,7 +36,7 @@ const Authors = () => {
           {allAuthors.map((author) => (
             <li className="single_author" key={author.id}>
               {/* <a href="#">{author.name}</a> */}
-              <Link to={`/author/${author.id}`}>{author.name}</Link>
+              <Link to={`/authors/${author.id}`}>{author.name}</Link>
             </li>
           ))}
         </ul>
