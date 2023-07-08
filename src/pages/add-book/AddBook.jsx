@@ -15,8 +15,6 @@ const AddBook = () => {
   const [publishers] = useContext(PublishersContext);
   const navigate = useNavigate();
 
-  console.log(publishers);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -49,7 +47,6 @@ const AddBook = () => {
       .then((res) => {
         if (res.ok) {
           res.json().then((book) => {
-            console.log(book);
             setAllBook([book, ...allBook]);
             setLoading(false);
             navigate("/");
