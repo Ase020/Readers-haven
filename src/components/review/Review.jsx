@@ -4,7 +4,6 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
-import { useNavigate } from "react-router-dom";
 
 const Review = ({ review, setReviews, reviews }) => {
   const [btnHovered, setBtnHovered] = useState(null);
