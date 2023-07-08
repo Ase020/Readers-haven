@@ -21,10 +21,26 @@
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .my-books-header-span {
   color: #e8880a;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.my-books-header-span span {
+  color: lightgray;
+}
+
+.my-books-add-btn {
+  font-size: 28px;
 }
 
 .my-books-wrapper {

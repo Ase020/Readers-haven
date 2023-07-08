@@ -13,6 +13,7 @@
   font-size: 48px;
   color: #e88e19;
   margin-bottom: 40px;
+  text-transform: capitalize;
 }
 
 .profile-welcome-span {

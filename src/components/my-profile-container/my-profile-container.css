@@ -42,4 +42,9 @@
 .my-profile-detail-value {
   color: lightgray;
   font-size: 14px;
+  text-transform: capitalize;
+}
+
+.email {
+  text-transform: lowercase;
 }

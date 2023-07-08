@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
-import { EditOutlined, DeleteOutlined } from "@mui/icons-material";
+import { EditOutlined, DeleteOutlined, AddOutlined } from "@mui/icons-material";
 
 import "./my-books-container.css";
 
 const MyBooksContainer = () => {
   return (
     <div className="my-books-container">
-      <h3 className="my-books-header">
-        <span className="my-books-header-span">My </span>Books
-      </h3>
+      <div className="my-books-header">
+        <h3 className="my-books-header-span">
+          My <span> Books</span>
+        </h3>
+        <Link to="/books/add">
+          <AddOutlined
+            style={{ fontSize: "28px", color: "#e8880a", cursor: "pointer" }}
+          />
+        </Link>
+      </div>
 
       <div className="my-books-wrapper">
         <div className="my-book-wrapper">
