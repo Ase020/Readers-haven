@@ -26,3 +26,45 @@
   font-size: 14px;
   color: green;
 }
+
+.btn-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviews-btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0.5px solid lightgray;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-btn-name {
+  font-size: 12px;
+}
+
+.review-edit {
+  background: #6258ec;
+}
+
+.review-edit:hover {
+  background: #fff;
+  color: #6258ec;
+  border: 0.5px solid #6258ec;
+}
+
+.review-delete {
+  background: #f27575;
+}
+
+.review-delete:hover {
+  background: #fff;
+  color: #f27575;
+  border: 0.5px solid #f27575;
+}

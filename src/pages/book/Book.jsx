@@ -32,7 +32,12 @@ const Book = () => {
         <div className="reviews-wrapper">
           <h3>Reviews</h3>
           {reviews.map((review) => (
-            <Review key={review.id} review={review} />
+            <Review
+              key={review.id}
+              review={review}
+              setReviews={setReviews}
+              reviews={reviews}
+            />
           ))}
         </div>
 
