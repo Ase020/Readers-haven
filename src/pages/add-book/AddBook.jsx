@@ -2,10 +2,12 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./add-book.css";
 import { UserContext } from "../../context/user";
+import { BooksContext } from "../../context/books";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
   const [user] = useContext(UserContext);
+  const [allBook, setAllBook] = useContext(BooksContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -37,15 +39,24 @@ const AddBook = () => {
       },
       body: JSON.stringify(bookObj),
     })
-      .then((res) => res.json())
-      .then((book) => {
-        console.log(book);
-        setLoading(false);
-        navigate("/");
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((book) => {
+            console.log(book);
+            setAllBook([book, ...allBook]);
+            setLoading(false);
+            navigate("/");
+          });
+        } else {
+          navigate("/login");
+          throw new Error("Book not saved!");
+        }
       })
       .catch((error) => {
         console.error(error);
+        alert("Login to add a book!");
         setLoading(false);
+        navigate("/login");
       });
 
     navigate("/");

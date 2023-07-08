@@ -16,6 +16,7 @@ import {
   Profile,
 } from "./pages";
 import { UserContext } from "./context/user";
+import { BooksContext } from "./context/books";
 
 const App = () => {
   // const [user, setUser] = useState(null);
@@ -54,7 +55,7 @@ const App = () => {
     setUser(null);
   };
 
-  const [allBook, setAllBook] = useState([]);
+  const [allBook, setAllBook] = useContext(BooksContext);
   const getAllbook = async () => {
     const res = await fetch("http://localhost:3000/books");
     const data = await res.json();
