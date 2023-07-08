@@ -1,14 +1,21 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import "./add-book.css";
 import { UserContext } from "../../context/user";
 import { BooksContext } from "../../context/books";
+import { AuthorsContext } from "../../context/authors";
+import { PublishersContext } from "../../context/publishers";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
   const [user] = useContext(UserContext);
   const [allBook, setAllBook] = useContext(BooksContext);
+  const [authors] = useContext(AuthorsContext);
+  const [publishers] = useContext(PublishersContext);
   const navigate = useNavigate();
+
+  console.log(publishers);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -101,22 +108,37 @@ const AddBook = () => {
             className="add_book-form-input"
             required
           />
-          <input
+          {/* <input
             type="number"
             placeholder="Author_id"
             className="add_book-form-input"
             required
             min="1"
             step="1"
-          />
-          <input
+          /> */}
+
+          <select className="add_book-form-input">
+            {authors.map((author) => (
+              <option key={author.id} value={author.id}>
+                {author.name}
+              </option>
+            ))}
+          </select>
+          <select className="add_book-form-input">
+            {publishers.map((publisher) => (
+              <option key={publisher.id} value={publisher.id}>
+                {publisher.name}
+              </option>
+            ))}
+          </select>
+          {/* <input
             type="number"
             placeholder="Publisher_id"
             className="add_book-form-input"
             required
             min="1"
             step="1"
-          />
+          /> */}
           {/* <input
             type="number"
             placeholder="User_id"
