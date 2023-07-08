@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import SmallBook from '../../components/smallcard/Smallbook';
+import { useEffect, useState } from "react";
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
+import SmallBook from "../../components/smallcard/Smallbook";
 // import Small from '../../components/smallcard/Small';
-import './search.css';
+import "./search.css";
 // eslint-disable-next-line react/prop-types
 function Search({ allBook = [] }) {
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  console.log(allBook);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filterBooks = useCallback(() => {
     if (!searchTerm) return;
@@ -20,10 +19,6 @@ function Search({ allBook = [] }) {
   useEffect(() => {
     filterBooks();
   }, [filterBooks]);
-
-  console.log('====================================');
-  console.log('filteredBooks', filteredBooks);
-  console.log('====================================');
 
   return (
     <div className="search_wrapper">

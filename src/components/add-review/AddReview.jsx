@@ -1,12 +1,20 @@
+import { useContext } from "react";
 import "./add-review.css";
+import { UserContext } from "../../context/user";
+import { useParams } from "react-router-dom";
 
 const AddReview = () => {
+  const [user] = useContext(UserContext);
+  const { id } = useParams();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const reviewObj = {
+      book_id: parseInt(id),
+      user_id: user.id,
       description: e.target[0].value,
-      star_rating: e.target[1].value,
+      star_rating: parseInt(e.target[1].value),
     };
 
     console.log("ReviewObj: ", reviewObj);

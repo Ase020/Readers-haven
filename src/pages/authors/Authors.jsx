@@ -1,11 +1,11 @@
 // import React from 'react'
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./authors.css";
 
 const Authors = () => {
   const [allAuthors, setAllAuthors] = useState([]);
+
   const getAllAuthors = async () => {
     const res = await fetch(
       "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/authors"

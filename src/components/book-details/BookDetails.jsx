@@ -14,7 +14,7 @@ const BookDetails = ({ book }) => {
           Genre: <span className="book-user">{book?.genre}</span>
         </p>
         <p className="book-details-header">
-          Author: <span className="book-user">{book?.author.name}</span>
+          Author: <span className="book-user">{book?.author?.name}</span>
         </p>
         <p className="book-details-header">
           Publisher: <span className="book-user">{book?.publisher?.name}</span>
