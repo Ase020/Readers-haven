@@ -19,37 +19,47 @@ const AddReview = ({ reviews, setReviews }) => {
       star_rating: parseInt(e.target[1].value),
     };
 
-    console.log("ReviewObj: ", reviewObj);
+    const addReview = (reviewObj) => {
+      const alreadyAddedReview = reviews.some(
+        (review) => review.user_id === user.id
+      );
 
-    fetch(`http://localhost:3000/books/${id}/reviews`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(reviewObj),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (res.status === 422) {
-          throw new Error("Unprocessable Entity");
-        } else {
-          throw new Error("Unknown Error");
-        }
-      })
-      .then((data) => {
-        // reviews.push(data);
-        setReviews([...reviews, data]);
+      if (alreadyAddedReview) {
+        alert("Sorry! You've already added a review💀");
+        return;
+      }
 
-        console.log(data);
+      fetch(`http://localhost:3000/books/${id}/reviews`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewObj),
       })
-      .catch((error) => {
-        if (error.message === "Unprocessable Entity") {
-          navigate("/login");
-        } else {
-          console.log(error);
-        }
-      });
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else if (res.status === 422) {
+            throw new Error("Unprocessable Entity");
+          } else {
+            throw new Error("Unknown Error");
+          }
+        })
+        .then((data) => {
+          setReviews([...reviews, data]);
+
+          console.log(data);
+        })
+        .catch((error) => {
+          if (error.message === "Unprocessable Entity") {
+            navigate("/login");
+          } else {
+            console.log(error);
+          }
+        });
+    };
+
+    addReview(reviewObj);
   };
 
   return (
