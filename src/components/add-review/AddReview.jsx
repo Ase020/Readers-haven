@@ -18,6 +18,17 @@ const AddReview = () => {
     };
 
     console.log("ReviewObj: ", reviewObj);
+
+    fetch(`http://localhost:3000/books/${id}/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewObj),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
   };
 
   return (

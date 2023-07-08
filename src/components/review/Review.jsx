@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
-import './review.css';
+import "./review.css";
 
 const Review = ({ review }) => {
   return (
     <div className="review">
       <h4 className="review-user">
-        {review.user?.first_name} <span className="review-comm">said: </span>
+        <span style={{ textTransform: "capitalize" }}>
+          {review.user?.first_name}
+        </span>{" "}
+        <span className="review-comm">said: </span>
       </h4>
       <p className="review-head">
         Comment: <span className="review-comm">{review.description}</span>
