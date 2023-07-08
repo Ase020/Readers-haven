@@ -105,14 +105,6 @@ const AddBook = () => {
             className="add_book-form-input"
             required
           />
-          {/* <input
-            type="number"
-            placeholder="Author_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          /> */}
 
           <select className="add_book-form-input">
             {authors.map((author) => (
@@ -128,22 +120,6 @@ const AddBook = () => {
               </option>
             ))}
           </select>
-          {/* <input
-            type="number"
-            placeholder="Publisher_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          /> */}
-          {/* <input
-            type="number"
-            placeholder="User_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          /> */}
 
           <textarea
             className="add_book-form-input textarea"
