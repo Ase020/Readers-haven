@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react";
 import "./add-review.css";
 import { UserContext } from "../../context/user";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddReview = () => {
+const AddReview = ({ reviews, setReviews }) => {
   const [user] = useContext(UserContext);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,9 +28,28 @@ const AddReview = () => {
       },
       body: JSON.stringify(reviewObj),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else if (res.status === 422) {
+          throw new Error("Unprocessable Entity");
+        } else {
+          throw new Error("Unknown Error");
+        }
+      })
+      .then((data) => {
+        // reviews.push(data);
+        setReviews([...reviews, data]);
+
+        console.log(data);
+      })
+      .catch((error) => {
+        if (error.message === "Unprocessable Entity") {
+          navigate("/login");
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   return (
