@@ -4,15 +4,12 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
+import UpdateReview from "../update-review/UpdateReview";
 
 const Review = ({ review, setReviews, reviews }) => {
   const [btnHovered, setBtnHovered] = useState(null);
   const [updateOn, setUpdateOn] = useState(false);
   const [user] = useContext(UserContext);
-
-  const handleEdit = (e) => {
-    e.preventDefault();
-  };
 
   const handleDelete = () => {
     confirm("Delete your review");
@@ -74,34 +71,12 @@ const Review = ({ review, setReviews, reviews }) => {
       </p>
 
       {updateOn && (
-        <form className="review-update-wrapper">
-          <textarea
-            cols="30"
-            rows="3"
-            className="review-update-input"
-          ></textarea>
-
-          <select className="review-update-input">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-
-          <button
-            type="submit"
-            className="review-update-btn"
-            onClick={handleEdit}
-          >
-            Update
-          </button>
-        </form>
+        <UpdateReview
+          review={review}
+          setUpdateOn={setUpdateOn}
+          reviews={reviews}
+          setReviews={setReviews}
+        />
       )}
 
       <div className="btn-wrapper">
