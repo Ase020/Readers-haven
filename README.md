@@ -77,4 +77,4 @@ This project utilizes the following technologies:
 
 ## Contact
 
-For any questions or inquiries, please contact felix5olali@gmail.com,
+For any questions or inquiries, please contact felix5olali@gmail.com, milhanqamar@gmail.com
