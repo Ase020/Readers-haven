@@ -6,6 +6,7 @@ import { UserContext } from "../../context/user";
 import { BooksContext } from "../../context/books";
 import { AuthorsContext } from "../../context/authors";
 import { PublishersContext } from "../../context/publishers";
+import { genres } from "../../constants";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
@@ -77,12 +78,19 @@ const AddBook = () => {
             className="add_book-form-input"
             required
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Genre"
             className="add_book-form-input"
             required
-          />
+          /> */}
+          <select className="add_book-form-input">
+            {genres.map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
           <input
             type="number"
             placeholder="Price"
