@@ -28,27 +28,6 @@ To run the application on your local machine, follow these steps:
    Navigate to the project directory:
    ```
 
-2. Navigate to the project directory:
-
-```bash
-Copy code
-cd Readers-haven-client
-```
-
-2. Install the dependencies:
-
-```bash
-Copy code
-npm install
-```
-
-3. Start the development server:
-
-```bash
-Copy code
-npm run dev
-```
-
 Open your browser and visit https://peaceful-oasis-68149-c720121aea60.herokuapp.com to see the application running.
 
 ## Configuration
@@ -80,8 +59,14 @@ The project is licensed under Apache 2.0.
 
 This project utilizes the following technologies:
 
-- [React](https://reactjs.org/): JavaScript library for building user interfaces.
-- [React Router](https://reactrouter.com/): Library for handling routing in a React application.
+- Frontend:
+
+  - [React](https://reactjs.org/): JavaScript library for building user interfaces.
+  - [React Router](https://reactrouter.com/): Library for handling routing in a React application.
+
+- Backend:
+
+  - [Ruby on Rails](https://rubyonrails.org/): Web application framework used for the backend development.
 
 ## Contact
 
