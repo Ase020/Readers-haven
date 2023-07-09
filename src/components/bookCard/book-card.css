@@ -20,7 +20,9 @@
 
 .book-cover {
   width: 100%;
+  max-width: 300px;
   height: 60%;
+  min-height: 300px;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
 }

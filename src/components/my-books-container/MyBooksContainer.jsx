@@ -11,6 +11,7 @@ const NoBook = () => (
   <h1 className="add-book-to-shelf">Add Books for reviews</h1>
 );
 
+
 const MyBooksContainer = ({ user, setUser }) => {
   const [allBook, setAllBook] = useContext(BooksContext);
 
@@ -30,13 +31,12 @@ const MyBooksContainer = ({ user, setUser }) => {
       .then((res) => {
         if (res.ok) {
           alert('Book deleted successfully!');
-
+          
           // to remove the book from my books page
           setUser((prevUser) => ({
             ...prevUser,
             books: prevUser.books.filter((book) => book.id !== book_id),
           }));
-
           sessionStorage.setItem(
             'user',
             JSON.stringify({
@@ -46,9 +46,7 @@ const MyBooksContainer = ({ user, setUser }) => {
           );
 
           // to remove the book from the homepage
-          setAllBook((prevAllBooks) =>
-            prevAllBooks.filter((book) => book.id !== book_id)
-          );
+          setAllBook(allBook.filter((book) => book.id !== book_id));
         } else {
           alert('Book deletion failed💀');
         }

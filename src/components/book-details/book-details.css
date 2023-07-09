@@ -7,6 +7,7 @@
 .book-img {
   /* width: 50%; */
   height: 100%;
+  max-width: 450px;
   object-fit: cover;
   flex: 1;
 }
@@ -19,6 +20,7 @@
   flex: 0.5;
   width: fit-content;
   max-width: 400px;
+  overflow: scroll;
 }
 
 .book-details h2 {
@@ -38,4 +40,40 @@
   color: #d7a25b;
   font-weight: 300;
   text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+  .book-details {
+    flex: 1;
+  }
+
+  .book-img {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-wrapper {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  }
+
+  .book-img {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-wrapper {
+    flex-direction: column;
+  }
+
+  .book-img {
+    max-width: 100%;
+  }
+
+  .book-details {
+    max-width: 100%;
+  }
 }

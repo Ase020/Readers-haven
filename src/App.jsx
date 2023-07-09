@@ -20,8 +20,13 @@ import { UserContext } from './context/user';
 import { BooksContext } from './context/books';
 
 const App = () => {
-  const [user, setUser, isLoggedin, setIsLoggedin] = useContext(UserContext);
-  const [allBook, setAllBook] = useContext(BooksContext);
+  const [isLoggedin, setIsLoggedin] = useState(false);
+  const [user, setUser] = useContext(UserContext);
+  const [
+    allBook,
+    // , setAllBook
+  ] = useContext(BooksContext);
+
 
   const handleLogin = (user) => {
     setUser(user);
@@ -34,17 +39,6 @@ const App = () => {
     sessionStorage.removeItem('user');
     setIsLoggedin(false);
   };
-
-  const getAllbook = async () => {
-    const res = await fetch(
-      'https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books'
-    );
-    const data = await res.json();
-    setAllBook(data);
-  };
-  useEffect(() => {
-    getAllbook();
-  }, []);
 
   const router = createBrowserRouter([
     {
