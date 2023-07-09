@@ -28,8 +28,6 @@ To run the application on your local machine, follow these steps:
    Navigate to the project directory:
    ```
 
-Open your browser and visit https://peaceful-oasis-68149-c720121aea60.herokuapp.com to see the application running.
-
 ## Configuration
 
 Before running the application, you need to set up the backend API. Update the API endpoint in the configuration file to match your backend server:
@@ -42,14 +40,16 @@ To deploy the application to a production environment, follow these steps:
 
 2. Update the API endpoint in the configuration file (`src/config.js`) to match your backend server for the production environment.
 
-   ```javascript
-   const API_BASE_URL =
-     'https://peaceful-oasis-68149-c720121aea60.herokuapp.com';
-   ```
-
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## Project Setup
+
+The project is hosted on two separate repositories:
+
+- The [React Frontend](https://github.com/Ase020/Readers-haven-client) deployed at the [Readers-haven-client](https://readers-haven.vercel.app)
+- The [Ruby Backend](https://github.com/Ase020/readers-haven-api)
 
 ## License
 
