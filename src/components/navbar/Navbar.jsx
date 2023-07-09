@@ -1,22 +1,21 @@
 /* eslint-disable react/prop-types */
 // import React from "react";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { profile } from "../../assets";
-import "./navbar.css";
+import { profile } from '../../assets';
+import './navbar.css';
 
-const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
+const Navbar = ({ user, onLogout, isLoggedin }) => {
   const [dropdown, setdropdown] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/logout", {
-      method: "DELETE",
+    fetch('https://peaceful-oasis-68149-c720121aea60.herokuapp.com/logout', {
+      method: 'DELETE',
     }).then(() => onLogout());
     setdropdown(false);
-    setIsLoggedin(false);
-    navigate("/login");
+    navigate('/login');
   };
 
   return (

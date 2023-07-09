@@ -1,27 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect } from "react";
+import { useContext } from 'react';
 
-import { MyBooksContainer, MyProfileContainer } from "../../components";
-import { UserContext } from "../../context/user";
-import "./profile.css";
+import { MyBooksContainer, MyProfileContainer } from '../../components';
+import { UserContext } from '../../context/user';
+import './profile.css';
 
 const Profile = () => {
   const [user, setUser] = useContext(UserContext);
 
   if (isNaN(user.id)) {
     // alert("You have to be logged in to view this page!");
-    window.location.href = "/login";
+    window.location.href = '/login';
   }
-
-  useEffect(() => {
-    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/users/${user.id}`)
-      .then((res) => {
-        if (res.ok) {
-          res.json().then(setUser);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div className="profile-wrapper">
@@ -31,7 +21,7 @@ const Profile = () => {
 
       <div className="my-profile-wrapper">
         <MyProfileContainer user={user} />
-        <MyBooksContainer user={user} />
+        <MyBooksContainer user={user} setUser={setUser} />
       </div>
     </div>
   );

@@ -1,30 +1,30 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import "./add-book.css";
-import { UserContext } from "../../context/user";
-import { BooksContext } from "../../context/books";
-import { AuthorsContext } from "../../context/authors";
-import { PublishersContext } from "../../context/publishers";
-import { genres } from "../../constants";
+import './add-book.css';
+import { UserContext } from '../../context/user';
+import { BooksContext } from '../../context/books';
+import { AuthorsContext } from '../../context/authors';
+import { PublishersContext } from '../../context/publishers';
+import { genres } from '../../constants';
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
-  const [user] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
   const [allBook, setAllBook] = useContext(BooksContext);
   const [authors] = useContext(AuthorsContext);
   const [publishers] = useContext(PublishersContext);
   const navigate = useNavigate();
 
+  if (!user) {
+    navigate('/login');
+    return;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!user) {
-      navigate("/login");
-      return;
-    }
-
-    confirm("Add book?");
+    confirm('Add book?');
     setLoading(true);
     const bookObj = {
       title: e.target[0].value,
@@ -38,10 +38,10 @@ const AddBook = () => {
       user_id: user?.id,
     };
 
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books", {
-      method: "POST",
+    fetch('https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(bookObj),
     })
@@ -50,21 +50,34 @@ const AddBook = () => {
           res.json().then((book) => {
             setAllBook([book, ...allBook]);
             setLoading(false);
-            navigate("/");
+            // add a book to session
+            setUser((prevUser) => ({
+              ...prevUser,
+              books: [book, ...prevUser.books],
+            }));
+
+            sessionStorage.setItem(
+              'user',
+              JSON.stringify({
+                ...user,
+                books: [book, ...user.books],
+              })
+            );
+            navigate('/');
           });
         } else {
-          navigate("/login");
-          throw new Error("Book not saved!");
+          navigate('/login');
+          throw new Error('Book not saved!');
         }
       })
       .catch((error) => {
         console.error(error);
-        alert("Login to add a book!");
+        alert('Login to add a book!');
         setLoading(false);
-        navigate("/login");
+        navigate('/login');
       });
 
-    navigate("/");
+    navigate('/');
   };
 
   return (
@@ -138,7 +151,7 @@ const AddBook = () => {
           ></textarea>
 
           <button type="submit" className="add_book-form-btn">
-            {loading ? "Adding book" : "Add book"}
+            {loading ? 'Adding book' : 'Add book'}
           </button>
         </form>
       </div>

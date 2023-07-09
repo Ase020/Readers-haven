@@ -1,44 +1,56 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import { EditOutlined, DeleteOutlined, AddOutlined } from "@mui/icons-material";
+import { EditOutlined, DeleteOutlined, AddOutlined } from '@mui/icons-material';
 
-import "./my-books-container.css";
-import { BooksContext } from "../../context/books";
+import './my-books-container.css';
+import { BooksContext } from '../../context/books';
 
 const NoBook = () => (
   <h1 className="add-book-to-shelf">Add Books for reviews</h1>
 );
 
-const MyBooksContainer = ({ user }) => {
-  const [user1, setUser1] = useState(user);
-  const [setAllBook] = useContext(BooksContext);
+const MyBooksContainer = ({ user, setUser }) => {
+  const [allBook, setAllBook] = useContext(BooksContext);
+
+  console.log(allBook);
 
   const handleDelete = (book_id) => {
-    confirm("Delete book?");
-    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    confirm('Delete book?');
+    fetch(
+      `https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
       .then((res) => {
         if (res.ok) {
-          alert("Book deleted successfully!");
+          alert('Book deleted successfully!');
 
           // to remove the book from my books page
-          setUser1((prevUser) => ({
+          setUser((prevUser) => ({
             ...prevUser,
             books: prevUser.books.filter((book) => book.id !== book_id),
           }));
+
+          sessionStorage.setItem(
+            'user',
+            JSON.stringify({
+              ...user,
+              books: user.books.filter((book) => book.id !== book_id),
+            })
+          );
 
           // to remove the book from the homepage
           setAllBook((prevAllBooks) =>
             prevAllBooks.filter((book) => book.id !== book_id)
           );
         } else {
-          alert("Book deletion failed💀");
+          alert('Book deletion failed💀');
         }
       })
       .catch((err) => console.log(err));
@@ -52,14 +64,14 @@ const MyBooksContainer = ({ user }) => {
         </h3>
         <Link to="/books/add">
           <AddOutlined
-            style={{ fontSize: "28px", color: "#e8880a", cursor: "pointer" }}
+            style={{ fontSize: '28px', color: '#e8880a', cursor: 'pointer' }}
           />
         </Link>
       </div>
 
       <div className="my-books-wrapper">
-        {user1.books.length > 0 ? (
-          user1.books.map((book) => (
+        {user.books.length > 0 ? (
+          user.books.map((book) => (
             <div className="my-book-wrapper" key={book?.id}>
               <Link to={`/books/${book.id}`}>{book?.title}</Link>
 
