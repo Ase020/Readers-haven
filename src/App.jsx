@@ -14,12 +14,12 @@ import {
   Authors,
   AddBook,
   Profile,
+  Author,
 } from "./pages";
 import { UserContext } from "./context/user";
 import { BooksContext } from "./context/books";
 
 const App = () => {
-  // const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [user, setUser] = useContext(UserContext);
   const [allBook, setAllBook] = useContext(BooksContext);
@@ -104,6 +104,10 @@ const App = () => {
         {
           path: "/authors",
           element: <Authors />,
+        },
+        {
+          path: "/authors/:id",
+          element: <Author />,
         },
         {
           path: "/books/:id",

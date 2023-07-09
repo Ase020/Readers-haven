@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import './booklist.css';
+import "./booklist.css";
 
 // import { books } from '../../constants';
-import BookCard from '../bookCard/BookCard';
+import BookCard from "../bookCard/BookCard";
 
 // eslint-disable-next-line react/prop-types
 const BookList = ({ allBook }) => {
@@ -12,7 +12,7 @@ const BookList = ({ allBook }) => {
         <BookCard
           key={book.id}
           id={book.id}
-          author={book.author?.name}
+          author={book.author}
           title={book.title}
           publish_date={book.publish_date}
           price={book.price}

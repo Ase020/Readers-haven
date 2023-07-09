@@ -41,6 +41,10 @@
   font-size: 14px;
 }
 
+.book-attr-name {
+  color: #deb887;
+}
+
 .showmore-btn {
   background: #deb887;
   color: #fff;

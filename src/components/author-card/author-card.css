@@ -1,0 +1,20 @@
+.author-card {
+  background: lightgray;
+  padding: 12px 20px;
+  border-radius: 8px;
+
+  /* box-shadow */
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 300px;
+}
+
+.author_card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

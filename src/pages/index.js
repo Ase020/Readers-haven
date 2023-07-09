@@ -8,6 +8,7 @@ import { default as Authors } from "./authors/Authors";
 import { default as Book } from "./book/Book";
 import { default as AddBook } from "./add-book/AddBook";
 import { default as Profile } from "./profile/Profile";
+import { default as Author } from "./author/Author";
 
 export {
   Home,
@@ -19,5 +20,6 @@ export {
   Authors,
   Book,
   AddBook,
+  Author,
   Profile,
 };

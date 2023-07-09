@@ -1,0 +1,29 @@
+.author-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  /* max-height: 100vh; */
+}
+
+.author-welcome {
+  font-size: 48px;
+  color: #e88e19;
+  margin-bottom: 40px;
+}
+
+.author-welcome-span {
+  color: lightgray;
+}
+
+.my-author-wrapper {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding: 20px;
+  gap: 50px;
+  max-height: 540px;
+}
