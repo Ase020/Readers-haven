@@ -26,8 +26,8 @@ const BookCard = ({
             Published: <span className="book-attr">{publish_date}</span>
           </p>
           <p className="book-attr">
-            <Link to={`/books/${id}/author`}>
-              Author: <span className="book-attr">{author}</span>
+            <Link to={`/authors/${author?.id}`}>
+              Author: <span className="book-attr-name">{author?.name}</span>
             </Link>
           </p>
           <p className="book-attr">
