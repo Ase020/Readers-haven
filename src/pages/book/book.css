@@ -11,7 +11,7 @@
 }
 
 .reviews-container {
-  background: #e1dede;
+  background: rgb(244, 243, 243);
   flex: 1;
   max-width: 450px;
 
