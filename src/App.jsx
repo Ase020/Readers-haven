@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useState } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 import {
   Home,
   Layout,
@@ -15,9 +15,9 @@ import {
   AddBook,
   Profile,
   Author,
-} from "./pages";
-import { UserContext } from "./context/user";
-import { BooksContext } from "./context/books";
+} from './pages';
+import { UserContext } from './context/user';
+import { BooksContext } from './context/books';
 
 const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -27,101 +27,64 @@ const App = () => {
     // , setAllBook
   ] = useContext(BooksContext);
 
-  useEffect(() => {
-    // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          console.log("logged in");
-          return res.json();
-        } else {
-          throw new Error("User not logged in");
-        }
-      })
-      .then((user) => {
-        setUser(user);
-        setIsLoggedin(true);
-      })
-      .catch(() => {
-        setIsLoggedin(false);
-      });
-  }, []);
 
   const handleLogin = (user) => {
     setUser(user);
+    sessionStorage.setItem('user', JSON.stringify(user));
+    setIsLoggedin(true);
   };
 
   const handleLogout = () => {
     setUser(null);
+    sessionStorage.removeItem('user');
+    setIsLoggedin(false);
   };
-
-  // const getAllbook = async () => {
-  //   const res = await fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books");
-  //   const data = await res.json();
-  //   setAllBook(data);
-  // };
-  // useEffect(() => {
-  //   getAllbook();
-  // }, []);
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: (
-        <Layout
-          user={user}
-          onLogout={handleLogout}
-          isLoggedin={isLoggedin}
-          setIsLoggedin={setIsLoggedin}
-        />
+        <Layout user={user} onLogout={handleLogout} isLoggedin={isLoggedin} />
       ),
       children: [
         {
-          path: "/",
+          path: '/',
           element: <Home allBook={allBook} />,
         },
         {
-          path: "/login",
-          element: (
-            <Login onLogin={handleLogin} setIsLoggedin={setIsLoggedin} />
-          ),
+          path: '/login',
+          element: <Login onLogin={handleLogin} />,
         },
         {
-          path: "/signup",
-          element: (
-            <Signup setIsLoggedin={setIsLoggedin} onLogin={handleLogin} />
-          ),
+          path: '/signup',
+          element: <Signup onLogin={handleLogin} />,
         },
         {
-          path: "/login/password_reset",
-          element: <PasswordReset setIsLoggedin={setIsLoggedin} />,
+          path: '/login/password_reset',
+          element: <PasswordReset />,
         },
         {
-          path: "/search",
+          path: '/search',
           element: <Search allBook={allBook} />,
         },
         {
-          path: "/authors",
+          path: '/authors',
           element: <Authors />,
         },
         {
-          path: "/authors/:id",
+          path: '/authors/:id',
           element: <Author />,
         },
         {
-          path: "/books/:id",
+          path: '/books/:id',
           element: <Book />,
         },
         {
-          path: "/books/add",
+          path: '/books/add',
           element: <AddBook />,
         },
         {
-          path: "/profile",
+          path: '/profile',
           element: <Profile />,
         },
       ],

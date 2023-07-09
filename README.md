@@ -28,29 +28,6 @@ To run the application on your local machine, follow these steps:
    Navigate to the project directory:
    ```
 
-2. Navigate to the project directory:
-
-```bash
-Copy code
-cd Readers-haven-client
-```
-
-2. Install the dependencies:
-
-```bash
-Copy code
-npm install
-```
-
-3. Start the development server:
-
-```bash
-Copy code
-npm run dev
-```
-
-Open your browser and visit https://peaceful-oasis-68149-c720121aea60.herokuapp.com to see the application running.
-
 ## Configuration
 
 Before running the application, you need to set up the backend API. Update the API endpoint in the configuration file to match your backend server:
@@ -63,14 +40,16 @@ To deploy the application to a production environment, follow these steps:
 
 2. Update the API endpoint in the configuration file (`src/config.js`) to match your backend server for the production environment.
 
-   ```javascript
-   const API_BASE_URL =
-     'https://peaceful-oasis-68149-c720121aea60.herokuapp.com';
-   ```
-
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## Project Setup
+
+The project is hosted on two separate repositories:
+
+- The [React Frontend](https://github.com/Ase020/Readers-haven-client) deployed at the [Readers-haven-client](https://readers-haven.vercel.app)
+- The [Ruby Backend](https://github.com/Ase020/readers-haven-api)
 
 ## License
 
@@ -80,9 +59,22 @@ The project is licensed under Apache 2.0.
 
 This project utilizes the following technologies:
 
-- [React](https://reactjs.org/): JavaScript library for building user interfaces.
-- [React Router](https://reactrouter.com/): Library for handling routing in a React application.
+- Frontend:
+
+  - [React](https://reactjs.org/): JavaScript library for building user interfaces.
+  - [React Router](https://reactrouter.com/): Library for handling routing in a React application.
+
+- Backend:
+
+  - [Ruby on Rails](https://rubyonrails.org/): Web application framework used for the backend development.
+
+## Contributors
+
+- Felix Nyalenda
+- Frank Thomas
+- Mohamed salad
+- Milhan Omar
 
 ## Contact
 
-For any questions or inquiries, please contact felix5olali@gmail.com,
+For any questions or inquiries, please contact felix5olali@gmail.com, milhanqamar@gmail.com

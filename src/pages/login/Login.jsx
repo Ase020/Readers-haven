@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { cover1 } from "../../assets";
-import "./login.css";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { cover1 } from '../../assets';
+import './login.css';
 
-const Login = ({ onLogin, setIsLoggedin }) => {
+const Login = ({ onLogin }) => {
   const [loginError, setLoginError] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -15,28 +15,27 @@ const Login = ({ onLogin, setIsLoggedin }) => {
     };
 
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/login", {
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/login", {
-      method: "POST",
+    fetch('https://peaceful-oasis-68149-c720121aea60.herokuapp.com/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(user),
     })
       .then((res) => {
         if (res.ok) {
-          console.log("Login successful");
+          console.log('Login successful');
           res.json().then((user) => {
             onLogin(user);
+            navigate('/');
           });
-          setIsLoggedin(true);
-          navigate("/");
         } else {
           setLoginError(true);
-          throw new Error("Login failed!");
+          throw new Error('Login failed!');
         }
       })
       .catch((error) => {
-        console.log("Error:", error);
+        console.log('Error:', error);
       });
   };
 

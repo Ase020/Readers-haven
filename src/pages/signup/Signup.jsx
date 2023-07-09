@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Link, useNavigate } from "react-router-dom";
-import "./signup.css";
-import { cover2 } from "../../assets";
+import { Link, useNavigate } from 'react-router-dom';
+import './signup.css';
+import { cover2 } from '../../assets';
 
-const Signup = ({ onLogin, setIsLoggedin }) => {
+const Signup = ({ onLogin }) => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,15 +19,16 @@ const Signup = ({ onLogin, setIsLoggedin }) => {
     // console.log(user);
 
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup", {
-    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('https://peaceful-oasis-68149-c720121aea60.herokuapp.com/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then(onLogin);
-    setIsLoggedin(true);
-    navigate("/");
+      .then((user) => {
+        onLogin(user);
+        navigate('/');
+      });
   };
 
   return (
