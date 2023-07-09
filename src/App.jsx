@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./App.css";
@@ -20,8 +20,7 @@ import { UserContext } from "./context/user";
 import { BooksContext } from "./context/books";
 
 const App = () => {
-  const [isLoggedin, setIsLoggedin] = useState(false);
-  const [user, setUser] = useContext(UserContext);
+  const [user, setUser, isLoggedin, setIsLoggedin] = useContext(UserContext);
   const [
     allBook,
     // , setAllBook
