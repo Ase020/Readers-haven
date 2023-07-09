@@ -13,30 +13,28 @@ const NoBook = () => (
 
 const MyBooksContainer = ({ user }) => {
   const [user1, setUser1] = useState(user);
-  const [setAllBook] = useContext(BooksContext);
+  const [allBook, setAllBook] = useContext(BooksContext);
 
   const handleDelete = (book_id) => {
     confirm("Delete book?");
-    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => {
         if (res.ok) {
           alert("Book deleted successfully!");
 
-          // to remove the book from my books page
-          setUser1((prevUser) => ({
-            ...prevUser,
-            books: prevUser.books.filter((book) => book.id !== book_id),
-          }));
+          // // to remove the book from my books page
+          setUser1(user1?.books.filter((book) => book.id !== book_id));
 
           // to remove the book from the homepage
-          setAllBook((prevAllBooks) =>
-            prevAllBooks.filter((book) => book.id !== book_id)
-          );
+          setAllBook(allBook.filter((book) => book.id !== book_id));
         } else {
           alert("Book deletion failed💀");
         }
@@ -58,8 +56,8 @@ const MyBooksContainer = ({ user }) => {
       </div>
 
       <div className="my-books-wrapper">
-        {user1.books.length > 0 ? (
-          user1.books.map((book) => (
+        {user1?.books?.length > 0 ? (
+          user1?.books.map((book) => (
             <div className="my-book-wrapper" key={book?.id}>
               <Link to={`/books/${book.id}`}>{book?.title}</Link>
 
