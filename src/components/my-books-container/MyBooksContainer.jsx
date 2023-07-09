@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { EditOutlined, DeleteOutlined, AddOutlined } from "@mui/icons-material";
 
 import "./my-books-container.css";
+import { BooksContext } from "../../context/books";
 
 const NoBook = () => (
   <h1 className="add-book-to-shelf">Add Books for reviews</h1>
@@ -12,6 +13,8 @@ const NoBook = () => (
 
 const MyBooksContainer = ({ user }) => {
   const [user1, setUser1] = useState(user);
+  const [setAllBook] = useContext(BooksContext);
+
   const handleDelete = (book_id) => {
     confirm("Delete book?");
     fetch(`http://localhost:3000/books/${book_id}`, {
@@ -23,10 +26,17 @@ const MyBooksContainer = ({ user }) => {
       .then((res) => {
         if (res.ok) {
           alert("Book deleted successfully!");
+
+          // to remove the book from my books page
           setUser1((prevUser) => ({
             ...prevUser,
             books: prevUser.books.filter((book) => book.id !== book_id),
           }));
+
+          // to remove the book from the homepage
+          setAllBook((prevAllBooks) =>
+            prevAllBooks.filter((book) => book.id !== book_id)
+          );
         } else {
           alert("Book deletion failed💀");
         }
