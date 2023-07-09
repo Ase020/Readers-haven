@@ -85,4 +85,4 @@ This project utilizes the following technologies:
 
 ## Contact
 
-For any questions or inquiries, please contact milhanqamar@gmail.com.
+For any questions or inquiries, please contact felix5olali@gmail.com,
