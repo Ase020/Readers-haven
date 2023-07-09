@@ -7,7 +7,7 @@ export const PublishersProvider = ({ children }) => {
   const [publishers, setPublishers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/publishers")
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/publishers")
       .then((res) => res.json())
       .then((data) => setPublishers(data));
   }, []);

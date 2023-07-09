@@ -14,7 +14,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${user.id}`)
+    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/users/${user.id}`)
       .then((res) => {
         if (res.ok) {
           res.json().then(setUser);

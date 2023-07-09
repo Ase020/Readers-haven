@@ -17,7 +17,7 @@ const MyBooksContainer = ({ user }) => {
 
   const handleDelete = (book_id) => {
     confirm("Delete book?");
-    fetch(`http://localhost:3000/books/${book_id}`, {
+    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const Book = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}`).then((res) => {
+    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${id}`).then((res) => {
       if (res.ok) {
         res.json().then(setBook);
       }
@@ -17,7 +17,7 @@ const Book = () => {
   }, [id]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/books/${id}/reviews`).then((res) => {
+    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${id}/reviews`).then((res) => {
       if (res.ok) {
         res.json().then(setReviews);
       }

@@ -25,7 +25,7 @@ const UpdateReview = ({ review, setUpdateOn, reviews, setReviews }) => {
     if (user.id === review.user_id) {
       confirm("Edit your review");
       fetch(
-        `http://localhost:3000/books/${review.book_id}/reviews/${review.id}`,
+        `https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${review.book_id}/reviews/${review.id}`,
         {
           method: "PATCH",
           headers: {

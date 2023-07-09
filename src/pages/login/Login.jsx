@@ -15,7 +15,7 @@ const Login = ({ onLogin, setIsLoggedin }) => {
     };
 
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/login", {
-    fetch("http://localhost:3000/login", {
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

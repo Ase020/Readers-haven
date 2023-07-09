@@ -7,7 +7,7 @@ export const AuthorsProvider = ({ children }) => {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/authors")
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/authors")
       .then((res) => res.json())
       .then((data) => setAuthors(data));
   }, []);
