@@ -1,4 +1,4 @@
-.my-books-container {
+.author-books-container {
   flex: 1;
   border: 1px solid #e8880a;
   padding: 24px;
@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.my-books-header {
+.author-books-header {
   font-size: 28px;
   color: lightgray;
   margin-bottom: 24px;
@@ -28,28 +28,28 @@
   justify-content: space-between;
 }
 
-.my-books-header-span {
+.author-books-header-span {
   color: #e8880a;
   display: flex;
   flex-direction: row;
   gap: 6px;
 }
 
-.my-books-header-span span {
+.author-books-header-span span {
   color: lightgray;
 }
 
-.my-books-add-btn {
+.author-books-add-btn {
   font-size: 28px;
 }
 
-.my-books-wrapper {
+.author-books-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.my-book-wrapper {
+.author-book-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,23 +60,24 @@
   color: #e8880a;
 }
 
-.my-book-wrapper a {
+.author-book-wrapper a {
   text-transform: capitalize;
 }
 
-.my-book-wrapper a:hover {
+.author-book-wrapper a:hover {
   color: gray;
 }
 
-.my-book-btn-wrapper {
+.author-book-btn-wrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-right: 12px;
+  font-size: 14px;
+  /* gap: 16px;
+  margin-right: 12px; */
 }
 
-.my-book-btn {
-  cursor: pointer;
+.author-book-btn-wrapper span {
+  color: gray;
 }
 
 .add-book-to-shelf {
