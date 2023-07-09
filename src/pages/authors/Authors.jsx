@@ -1,41 +1,19 @@
 // import React from 'react'
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./authors.css";
+import { AuthorsContext } from "../../context/authors";
 
 const Authors = () => {
-  const [allAuthors, setAllAuthors] = useState([]);
-
-  const getAllAuthors = async () => {
-    const res = await fetch(
-      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/authors"
-    );
-    const data = await res.json();
-    setAllAuthors(data);
-  };
-  useEffect(() => {
-    getAllAuthors();
-  }, []);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/me", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  const [allAuthors] = useContext(AuthorsContext);
 
   return (
     <div className="authors_wrapper">
+      <h2 className="authors-header">Authors</h2>
       <div className="authors-page">
-        <h2 className="authors-header">Books By Authors</h2>
         <ul className="list-authors">
           {allAuthors.map((author) => (
             <li className="single_author" key={author.id}>
-              {/* <a href="#">{author.name}</a> */}
               <Link to={`/authors/${author.id}`}>{author.name}</Link>
             </li>
           ))}

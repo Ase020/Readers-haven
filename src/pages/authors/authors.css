@@ -1,39 +1,13 @@
-/* .hello{
- color: white;
-} */
-.authors-page {
-  background-color: rgb(255, 255, 255);
-  width: 80%;
-  padding: 90px 60px 70px 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* align-items: center; */
-  margin: 0px auto;
-}
-
-#list_authors {
-  list-style: none;
-}
 .authors_wrapper {
-  padding: 70px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .authors-header {
-  font-size: 50px;
-  padding-bottom: 40px;
-}
-
-.single_author {
-  color: blue;
-  list-style: none;
-  font-size: 24px;
-  /* font-size: 500px; */
-  font-weight: bold;
-}
-.single_author a:hover {
-  color: black;
-}
-.author-span {
-  color: black;
+  font-size: 40px;
 }
