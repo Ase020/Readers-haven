@@ -5,6 +5,13 @@
   gap: 18px;
   padding: 30px;
   background: burlywood;
+  background: rgb(239, 186, 120);
+  background: radial-gradient(
+    circle,
+    rgba(239, 186, 120, 0.9641106442577031) 0%,
+    rgba(239, 186, 120, 1) 26%,
+    rgba(158, 158, 158, 1) 100%
+  );
 }
 
 .footer-links-container {

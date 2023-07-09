@@ -61,9 +61,7 @@ const Review = ({ review, setReviews, reviews }) => {
         Rating:{" "}
         <span
           className="review-rate"
-          style={
-            review.star_rating <= 5 ? { color: "red" } : { color: "green" }
-          }
+          style={review.star_rating < 5 ? { color: "red" } : { color: "green" }}
         >
           {review.star_rating}
         </span>

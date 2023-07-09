@@ -63,14 +63,14 @@
   border: 0.5px solid #fff;
   padding: 6px 12px;
   border-radius: 6px;
-  color: #6258ec;
+  color: #deb887;
   transition: all 0.5s ease-out;
 }
 
 .signup-wrapper button:hover {
-  background: #6258ec;
+  background: #deb887;
   color: #fff;
-  border: 0.5px solid #6258ec;
+  border: 0.5px solid #deb887;
 }
 
 .signup-text {
@@ -78,7 +78,7 @@
 }
 
 .signup-text a {
-  color: #6258ec;
+  color: #deb887;
 }
 
 .signup-form-wrapper {
@@ -116,10 +116,10 @@
 .signup-btn {
   padding: 8px 24px;
   width: fit-content;
-  border: 1px solid #6258ec;
+  border: 1px solid #deb887;
   border-radius: 6px;
   cursor: pointer;
-  background: #6258ec;
+  background: #deb887;
   color: white;
   font-size: 14px;
   transition: all 0.5s ease-out;
@@ -127,6 +127,6 @@
 
 .signup-btn:hover {
   background: white;
-  color: #6258ec;
-  border: 1px solid #6258ec;
+  color: #deb887;
+  border: 1px solid #deb887;
 }

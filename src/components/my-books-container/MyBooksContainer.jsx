@@ -1,14 +1,49 @@
 /* eslint-disable react/prop-types */
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
 import { EditOutlined, DeleteOutlined, AddOutlined } from "@mui/icons-material";
 
 import "./my-books-container.css";
+import { BooksContext } from "../../context/books";
 
 const NoBook = () => (
   <h1 className="add-book-to-shelf">Add Books for reviews</h1>
 );
 
 const MyBooksContainer = ({ user }) => {
+  const [user1, setUser1] = useState(user);
+  const [setAllBook] = useContext(BooksContext);
+
+  const handleDelete = (book_id) => {
+    confirm("Delete book?");
+    fetch(`http://localhost:3000/books/${book_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          alert("Book deleted successfully!");
+
+          // to remove the book from my books page
+          setUser1((prevUser) => ({
+            ...prevUser,
+            books: prevUser.books.filter((book) => book.id !== book_id),
+          }));
+
+          // to remove the book from the homepage
+          setAllBook((prevAllBooks) =>
+            prevAllBooks.filter((book) => book.id !== book_id)
+          );
+        } else {
+          alert("Book deletion failed💀");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="my-books-container">
       <div className="my-books-header">
@@ -23,14 +58,17 @@ const MyBooksContainer = ({ user }) => {
       </div>
 
       <div className="my-books-wrapper">
-        {user.books.length > 0 ? (
-          user.books.map((book) => (
+        {user1.books.length > 0 ? (
+          user1.books.map((book) => (
             <div className="my-book-wrapper" key={book?.id}>
               <Link to={`/books/${book.id}`}>{book?.title}</Link>
 
               <div className="my-book-btn-wrapper">
                 <EditOutlined className="my-book-btn" />
-                <DeleteOutlined className="my-book-btn" />
+                <DeleteOutlined
+                  className="my-book-btn"
+                  onClick={() => handleDelete(book.id)}
+                />
               </div>
             </div>
           ))

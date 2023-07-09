@@ -22,6 +22,7 @@ const App = () => {
   // const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [user, setUser] = useContext(UserContext);
+  const [allBook, setAllBook] = useContext(BooksContext);
 
   useEffect(() => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
@@ -55,12 +56,10 @@ const App = () => {
     setUser(null);
   };
 
-  const [allBook, setAllBook] = useContext(BooksContext);
   const getAllbook = async () => {
     const res = await fetch("http://localhost:3000/books");
     const data = await res.json();
     setAllBook(data);
-    // console.log(data);
   };
   useEffect(() => {
     getAllbook();

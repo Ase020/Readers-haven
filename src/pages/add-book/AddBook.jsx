@@ -1,13 +1,19 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import "./add-book.css";
 import { UserContext } from "../../context/user";
 import { BooksContext } from "../../context/books";
+import { AuthorsContext } from "../../context/authors";
+import { PublishersContext } from "../../context/publishers";
+import { genres } from "../../constants";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
   const [user] = useContext(UserContext);
   const [allBook, setAllBook] = useContext(BooksContext);
+  const [authors] = useContext(AuthorsContext);
+  const [publishers] = useContext(PublishersContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -42,7 +48,6 @@ const AddBook = () => {
       .then((res) => {
         if (res.ok) {
           res.json().then((book) => {
-            console.log(book);
             setAllBook([book, ...allBook]);
             setLoading(false);
             navigate("/");
@@ -73,12 +78,19 @@ const AddBook = () => {
             className="add_book-form-input"
             required
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Genre"
             className="add_book-form-input"
             required
-          />
+          /> */}
+          <select className="add_book-form-input">
+            {genres.map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
           <input
             type="number"
             placeholder="Price"
@@ -101,30 +113,21 @@ const AddBook = () => {
             className="add_book-form-input"
             required
           />
-          <input
-            type="number"
-            placeholder="Author_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          />
-          <input
-            type="number"
-            placeholder="Publisher_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          />
-          {/* <input
-            type="number"
-            placeholder="User_id"
-            className="add_book-form-input"
-            required
-            min="1"
-            step="1"
-          /> */}
+
+          <select className="add_book-form-input">
+            {authors.map((author) => (
+              <option key={author.id} value={author.id}>
+                {author.name}
+              </option>
+            ))}
+          </select>
+          <select className="add_book-form-input">
+            {publishers.map((publisher) => (
+              <option key={publisher.id} value={publisher.id}>
+                {publisher.name}
+              </option>
+            ))}
+          </select>
 
           <textarea
             className="add_book-form-input textarea"

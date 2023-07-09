@@ -20,14 +20,11 @@ const PasswordReset = () => {
       });
     }
 
-    fetch(
-      "https://peaceful-oasis-68149-c720121aea60.herokuapp.com/password/reset",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      }
-    )
+    fetch("http://localhost:3000/password/reset", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
       .then((res) => res.json())
       .then((data) => setApiRes(data))
       .catch(() => setApiRes({ error: "Error! Failed to reset password." }));
