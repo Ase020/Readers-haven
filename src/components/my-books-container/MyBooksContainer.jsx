@@ -1,44 +1,41 @@
 /* eslint-disable react/prop-types */
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import { EditOutlined, DeleteOutlined, AddOutlined } from '@mui/icons-material';
+import { EditOutlined, DeleteOutlined, AddOutlined } from "@mui/icons-material";
 
-import './my-books-container.css';
-import { BooksContext } from '../../context/books';
+import "./my-books-container.css";
+import { BooksContext } from "../../context/books";
 
 const NoBook = () => (
   <h1 className="add-book-to-shelf">Add Books for reviews</h1>
 );
 
-
 const MyBooksContainer = ({ user, setUser }) => {
   const [allBook, setAllBook] = useContext(BooksContext);
 
-  console.log(allBook);
-
   const handleDelete = (book_id) => {
-    confirm('Delete book?');
+    confirm("Delete book?");
     fetch(
       `https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${book_id}`,
       {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     )
       .then((res) => {
         if (res.ok) {
-          alert('Book deleted successfully!');
-          
+          alert("Book deleted successfully!");
+
           // to remove the book from my books page
           setUser((prevUser) => ({
             ...prevUser,
             books: prevUser.books.filter((book) => book.id !== book_id),
           }));
           sessionStorage.setItem(
-            'user',
+            "user",
             JSON.stringify({
               ...user,
               books: user.books.filter((book) => book.id !== book_id),
@@ -48,7 +45,7 @@ const MyBooksContainer = ({ user, setUser }) => {
           // to remove the book from the homepage
           setAllBook(allBook.filter((book) => book.id !== book_id));
         } else {
-          alert('Book deletion failed💀');
+          alert("Book deletion failed💀");
         }
       })
       .catch((err) => console.log(err));
@@ -62,7 +59,7 @@ const MyBooksContainer = ({ user, setUser }) => {
         </h3>
         <Link to="/books/add">
           <AddOutlined
-            style={{ fontSize: '28px', color: '#e8880a', cursor: 'pointer' }}
+            style={{ fontSize: "28px", color: "#e8880a", cursor: "pointer" }}
           />
         </Link>
       </div>

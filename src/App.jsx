@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 import {
   Home,
   Layout,
@@ -15,9 +15,9 @@ import {
   AddBook,
   Profile,
   Author,
-} from './pages';
-import { UserContext } from './context/user';
-import { BooksContext } from './context/books';
+} from "./pages";
+import { UserContext } from "./context/user";
+import { BooksContext } from "./context/books";
 
 const App = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -27,64 +27,63 @@ const App = () => {
     // , setAllBook
   ] = useContext(BooksContext);
 
-
   const handleLogin = (user) => {
     setUser(user);
-    sessionStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem("user", JSON.stringify(user));
     setIsLoggedin(true);
   };
 
   const handleLogout = () => {
     setUser(null);
-    sessionStorage.removeItem('user');
+    sessionStorage.removeItem("user");
     setIsLoggedin(false);
   };
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: (
         <Layout user={user} onLogout={handleLogout} isLoggedin={isLoggedin} />
       ),
       children: [
         {
-          path: '/',
+          path: "/",
           element: <Home allBook={allBook} />,
         },
         {
-          path: '/login',
+          path: "/login",
           element: <Login onLogin={handleLogin} />,
         },
         {
-          path: '/signup',
+          path: "/signup",
           element: <Signup onLogin={handleLogin} />,
         },
         {
-          path: '/login/password_reset',
+          path: "/login/password_reset",
           element: <PasswordReset />,
         },
         {
-          path: '/search',
+          path: "/search",
           element: <Search allBook={allBook} />,
         },
         {
-          path: '/authors',
+          path: "/authors",
           element: <Authors />,
         },
         {
-          path: '/authors/:id',
+          path: "/authors/:id",
           element: <Author />,
         },
         {
-          path: '/books/:id',
+          path: "/books/:id",
           element: <Book />,
         },
         {
-          path: '/books/add',
+          path: "/books/add",
           element: <AddBook />,
         },
         {
-          path: '/profile',
+          path: "/profile",
           element: <Profile />,
         },
       ],
