@@ -1,6 +1,13 @@
 /*  */
 .nav-wrapper {
-  background-color: #deb887;
+  /* background-color: #deb887; */
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    189deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(236, 195, 143, 0.9641106442577031) 0%,
+    rgba(158, 158, 158, 1) 89%
+  );
   padding: 20px 30px;
   display: flex;
   align-items: center;
@@ -23,7 +30,7 @@
 }
 
 .nav-links:hover {
-  color: #6258ec;
+  color: #808080;
 }
 
 .img-placeholder {
@@ -36,22 +43,11 @@
 .header {
   font-weight: bold;
   font-size: 22px;
-  /* margin-bottom: 35px; */
 }
 
-/* a {
-  display: block;
-  padding: 8px 15px;
-  text-decoration: none;
-  font-size: 16px;
-  color: inherit;
-  transition: all 0.5s ease;
+.header .header-span {
+  color: lightgray;
 }
-
-a:hover {
-  color: #6258ec;
-  text-decoration: underline;
-} */
 
 .profile-option {
   background-color: burlywood;

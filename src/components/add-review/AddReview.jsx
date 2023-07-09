@@ -12,6 +12,11 @@ const AddReview = ({ reviews, setReviews }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
     const reviewObj = {
       book_id: parseInt(id),
       user_id: user.id,

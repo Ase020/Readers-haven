@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { cover1 } from "../../assets";
 import "./login.css";
 
 const Login = ({ onLogin, setIsLoggedin }) => {
+  const [loginError, setLoginError] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const Login = ({ onLogin, setIsLoggedin }) => {
           setIsLoggedin(true);
           navigate("/");
         } else {
+          setLoginError(true);
           throw new Error("Login failed!");
         }
       })
@@ -80,6 +83,8 @@ const Login = ({ onLogin, setIsLoggedin }) => {
           <p className="password-reset">
             Forgot password? <Link to="/login/password_reset"> Reset</Link>
           </p>
+
+          {loginError && <p>Wrong Email/Password combination!</p>}
         </div>
       </div>
     </div>

@@ -22,7 +22,9 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
   return (
     <nav className="nav-wrapper">
       <Link to="/">
-        <h1 className="header">Readers Haven</h1>
+        <h1 className="header">
+          Readers <span className="header-span">Haven</span>
+        </h1>
       </Link>
       <div id="nav">
         <Link className="nav-links" to="/search">
@@ -36,7 +38,6 @@ const Navbar = ({ user, onLogout, isLoggedin, setIsLoggedin }) => {
         </Link>
 
         {isLoggedin ? (
-          // >>>>>>> main
           <img
             src={user?.image_url ? user?.image_url : profile}
             alt={user?.first_name}
