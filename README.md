@@ -68,6 +68,13 @@ This project utilizes the following technologies:
 
   - [Ruby on Rails](https://rubyonrails.org/): Web application framework used for the backend development.
 
+## Contributors
+
+- Felix Nyalenda
+- Frank Thomas
+- Mohamed salad
+- Milhan Omar
+
 ## Contact
 
 For any questions or inquiries, please contact felix5olali@gmail.com,
