@@ -38,7 +38,7 @@ const AddBook = () => {
       user_id: user?.id,
     };
 
-    fetch("http://localhost:3000/books", {
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Author = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/authors/${id}`)
+    fetch(`https://peaceful-oasis-68149-c720121aea60.herokuapp.com/authors/${id}`)
       .then((res) => res.json())
       .then(setAuthor)
       .catch((err) => console.error(err));

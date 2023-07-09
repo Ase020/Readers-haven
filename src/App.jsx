@@ -26,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     // fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me")
-    fetch("http://localhost:3000/me", {
+    fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/me", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -57,7 +57,7 @@ const App = () => {
   };
 
   const getAllbook = async () => {
-    const res = await fetch("http://localhost:3000/books");
+    const res = await fetch("https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books");
     const data = await res.json();
     setAllBook(data);
   };

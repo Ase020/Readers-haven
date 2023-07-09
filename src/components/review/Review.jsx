@@ -14,7 +14,7 @@ const Review = ({ review, setReviews, reviews }) => {
     confirm("Delete your review");
     if (user.id === review.user_id) {
       fetch(
-        `http://localhost:3000/books/${review.book_id}/reviews/${review.id}`,
+        `https://peaceful-oasis-68149-c720121aea60.herokuapp.com/books/${review.book_id}/reviews/${review.id}`,
         {
           method: "DELETE",
           headers: {
